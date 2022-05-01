@@ -48,6 +48,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: "dark",
+      },
       navbar: {
         title: "brack0.dev",
         logo: {
