@@ -1,17 +1,21 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
+dsouron:
+  name: Denis Souron
+  title: Lead Developer Fullstack
+  url: https://github.com/brack0
+  image_url: https://avatars.githubusercontent.com/u/9846217?v=4
 
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+bauzanneau:
+  name: Benjamin Auzanneau
+  title: Lead Developer Front-End
+  url: https://github.com/necraidan
+  image_url: https://avatars.githubusercontent.com/u/1424833?v=4
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+tnicoleau:
+  name: Tristan Nicoleau
+  title: Developer Front-End
+  image_url: /img/fec/tnicoleau.png
+
+gdupont:
+  name: Gaël Dupont
+  title: Developer Front-End
+  image_url: /img/fec/gdupont.png

@@ -25,6 +25,8 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
+          blogDescription:
+            "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
           showReadingTime: true,
         },
         theme: {
@@ -38,7 +40,12 @@ const config = {
       "@docusaurus/plugin-content-blog",
       {
         id: "fec",
+        blogDescription:
+          "Retrouvez tous les épisodes du podcast Front-End Chronicles",
+        blogSidebarCount: "ALL",
+        blogSidebarTitle: "Les épisodes du podcast",
         blogTitle: "Front-End Chronicles",
+        showReadingTime: false,
         routeBasePath: "fec",
         path: "./fec",
       },
