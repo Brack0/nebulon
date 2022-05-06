@@ -6,15 +6,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "Nebulon",
+  tagline: "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
+  url: "https://brack0.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "brack0", // Usually your GitHub org/user name.
+  projectName: "nebulon", // Usually your repo name.
 
   presets: [
     [
@@ -23,15 +23,9 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -39,27 +33,38 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        id: "fec",
+        blogTitle: "Front-End Chronicles",
+        routeBasePath: "fec",
+        path: "./fec",
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "brack0.dev",
         logo: {
           alt: "My Site Logo",
           src: "img/logo.svg",
         },
         items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
           { to: "/blog", label: "Blog", position: "left" },
+          { to: "/fec", label: "Front-End Chronicles", position: "left" },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/brack0",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            href: "https://gitlab.com/brack0",
+            label: "GitLab",
             position: "right",
           },
         ],
@@ -68,11 +73,11 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "About Me",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/denis-souron/",
               },
             ],
           },
@@ -80,16 +85,12 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                label: "Dev.to",
+                href: "https://dev.to/brack0",
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                label: "Anchor",
+                href: "https://anchor.fm/front-end-chronicles",
               },
             ],
           },
@@ -102,12 +103,16 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/brack0",
+              },
+              {
+                label: "GitLab",
+                href: "https://gitlab.com/brack0",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nebulon. Built with Docusaurus 2. Hosted on Vercel.`,
       },
       prism: {
         theme: lightCodeTheme,
