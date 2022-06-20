@@ -161,12 +161,17 @@ const displayLogin = (user: User) =>
 _ProTip :_ Si l'inférence ne fonctionne pas, pensez à définir un champ qui va aider Typescript à déterminer le bon type (`userType` dans notre exemple). Vous pouvez aussi identifier le type manuellement avec le mot-clé `is`.
 
 ```ts
-function isAdmin(user: User): user is AdminUser {
-  return (user as AdminUser).accessRights !== undefined;
-}
+const isAdmin = (user: User): user is AdminUser =>
+  (user as AdminUser).accessRights !== undefined;
+
+const users: User[] = [johnDoe, customer, guest];
+
+users.filter(isAdmin).forEach((admin) => console.log(admin.accessRights));
 ```
 
 ## Conclusion
+
+Vous pouvez maintenant être plus précis sur le typage des données. Rien de révolutionnaire ici mais rappelez vous que le typage est un bon moyen d'augmenter la prédictibilité de votre code.
 
 ## Pour aller plus loin
 
