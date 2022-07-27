@@ -19,7 +19,7 @@ En parallèle, il existe les bundlers "modernes" comme [Vite](https://vitejs.dev
 
 ## Gestion des bundles
 
-Angular est connu pour ne pas le plus exemplaire sur le bundle du framework en lui-même (@angular/core, @angular/browser, @angular/router, etc). Même si Ivy et les constantes améliorations réduisent progressivement le bundle minimal, on se souvient des fameux Hello World ou Todo MVC où la place du framework dans le bundle était bien supérieure aux concurrents.
+Angular est connu pour ne pas être le plus exemplaire sur le bundle du framework en lui-même (`@angular/core`, `@angular/browser`, `@angular/router`, etc). Même si Ivy et les constantes améliorations réduisent progressivement le bundle minimal, on se souvient des fameux Hello World ou Todo MVC où la place du framework dans le bundle était bien supérieure aux concurrents.
 
 En guise de comparaison, je vous propose d'analyser deux applications similaires ayant pour but de montrer les fondamentaux d'un framework frontend :
 
@@ -44,7 +44,7 @@ _NB: Au moment de l'écriture de cet article, les applications ont quelques vers
 
 ## Server-side rendering (SSR)
 
-Lorsque l'on fait de la génération de page côté client, les frameworks Javascript vont jouer un certain nombre d'actions au niveau du client (requêtes HTTP, construction du state, etc). Pourtant, quand on regarde le fonctionnement de [Qwik](https://qwik.builder.io/), on remarque que la majorité des frameworks frontend pourrait également réduire ces opérations faites par le navigateur quand on fait du SSR. Sans forcément aller aussi loin que Qwik, on pourrait faciliter la transmission des états depuis le serveur (en utilsant systématiquement le [TransferState](https://angular.io/api/platform-browser/TransferState) par exemple). Cela nous permettrait d'avoir automatiquement en cache les requêtes HTTP et le state de l'application sans configuration supplémentaire.
+Lorsque l'on fait de la génération de page côté client, les frameworks Javascript vont jouer un certain nombre d'actions au niveau du client (requêtes HTTP, construction du state, etc). Pourtant, quand on regarde le fonctionnement de [Qwik](https://qwik.builder.io/), on remarque que la majorité des frameworks frontend pourrait également réduire ces opérations faites par le navigateur quand on fait du SSR. Sans forcément aller aussi loin que Qwik, on pourrait faciliter la transmission des états depuis le serveur (en utilisant systématiquement le [TransferState](https://angular.io/api/platform-browser/TransferState) par exemple). Cela nous permettrait d'avoir automatiquement en cache les requêtes HTTP et le state de l'application sans configuration supplémentaire.
 
 _NB: Aujourd'hui, c'est à vous de configurer le TransferState pour l'utiliser. A titre d'exemple, si vous voulez récupérer les requêtes HTTP utilisées pour la génération de la page serveur, vous devez écrire un intercepteur HTTP qui va insérer dans le TransferState lors du contexte serveur, et lire depuis le TransferState quand on est au niveau du navigateur._
 

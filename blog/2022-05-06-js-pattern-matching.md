@@ -267,9 +267,7 @@ export const createOrUpdateArticle: CreateOrUpdateArticle =
 
 La première chose que l'on remarque, c'est que la lisibilité est bien meilleure. On a maintenant une base plus saine pour construire un pattern matching dans la fonction `processArticle()`. Cela va nous permettre d'isoler l'identification du scénario afin de pouvoir ajouter facilement des nouveaux use-case ou changer les conditions sans impacter le reste du traitement
 
-##
-
-### Identifier précisément et explicitement le scénario
+## Identifier précisément et explicitement le scénario
 
 > Explicit is better than implicit
 
@@ -316,7 +314,7 @@ export const getCommand: GetCommand = ({ article }) => {
 };
 ```
 
-### S'approcher du pattern matching
+## S'approcher du pattern matching
 
 L'astuce principale est de mêler les concepts de [literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals) et d'[IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). On va utiliser un objet litéral comme structure de notre pattern matching. Les clés de l'objet correspondent aux différents use-case et les valeurs associées sont les implémentations de ces use-case.
 
