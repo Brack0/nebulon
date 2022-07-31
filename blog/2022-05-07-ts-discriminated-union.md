@@ -7,7 +7,7 @@ tags: [typescript, tutorial, programming, french]
 
 ## De quoi parle-t-on ?
 
-En Typescript, il est possible de définir des types de plusieurs manières : interface, classe, enum, mot-clé `type`, `as const`, etc. Dans cet article, nous allons nous concentrer sur les types construits à partir d'une union disjointe et les avantages d'une telle pratique. L'union en Typescript se fait via le symbole `|` (ex: `type Union = A | B | C`). Le terme disjoint n'est pas anodin car contrairement au polymorphisme, les types que l'on va utiliser peuvent ne rien avoir en commun.
+En Typescript, il est possible de définir des types de plusieurs manières : interface, classe, enum, mot-clé `type`, `as const`, etc. Dans cet article, nous allons nous concentrer sur les types construits à partir d'une union disjointe et les avantages d'une telle pratique. L'union en Typescript se fait via le symbole `|` (ex : `type Union = A | B | C`). Le terme disjoint n'est pas anodin car contrairement au polymorphisme, les types que l'on va utiliser peuvent ne rien avoir en commun.
 
 <!--truncate-->
 
@@ -171,11 +171,11 @@ users.filter(isAdmin).forEach((admin) => console.log(admin.accessRights));
 
 ## Conclusion
 
-Vous pouvez maintenant être plus précis sur le typage des données. Rien de révolutionnaire ici mais rappelez vous que le typage est un bon moyen d'augmenter la prédictibilité de votre code.
+Vous pouvez maintenant être plus précis sur le typage des données. Rien de révolutionnaire ici mais rappelez-vous que le typage est un bon moyen d'augmenter la prédictibilité de votre code.
 
 ## Pour aller plus loin
 
-Je vous invite à aller voir mon article sur le pattern matching en JS qui complète assez bien les unions disjointes que l'on vient de voir. En combinant les deux, vous pouvez notamment faire du polymorphisme sans héritage et sans classe.
+Je vous invite à aller voir mon article sur le [pattern matching en JS](./js-pattern-matching) qui complète assez bien les unions disjointes que l'on vient de voir. En combinant les deux, vous pouvez notamment faire une sorte de polymorphisme sans héritage et sans classe.
 
 ```ts
 const redirectToHomePage = () => (location.href = "/");
