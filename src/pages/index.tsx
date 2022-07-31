@@ -1,27 +1,14 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Layout from '@theme/Layout';
-import clsx from 'clsx';
-import React from 'react';
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-      </div>
-    </header>
-  );
-}
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Layout from "@theme/Layout";
+import React from "react";
+import HomepageHeader from "../components/HomepageHeader";
 
 export default function Home(): JSX.Element {
   return (
     <Layout
       title={`127.0.0.1`}
-      description="Le blog de l'Alliance Rebelle contre l'Empire du Microservice">
+      description="Le blog de l'Alliance Rebelle contre l'Empire du Microservice"
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />

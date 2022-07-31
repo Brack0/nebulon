@@ -1,0 +1,17 @@
+.header {
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: var(--ifm-color-primary);
+  padding: 2rem;
+}
+
+@media screen and (min-width: 997px) {
+  .title {
+    padding: 4rem 0;
+  }
+}
