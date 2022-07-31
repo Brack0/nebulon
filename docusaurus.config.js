@@ -21,9 +21,7 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-        },
+        docs: false,
         blog: {
           blogDescription:
             "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
