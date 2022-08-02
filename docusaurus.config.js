@@ -67,6 +67,7 @@ const config = {
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           { to: "/fec", label: "Front-End Chronicles", position: "left" },
+          { to: "/references", label: "References", position: "left" },
           {
             href: "https://github.com/brack0",
             label: "GitHub",
