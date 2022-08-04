@@ -158,7 +158,9 @@ const displayLogin = (user: User) =>
   user.userType === "Guest" ? "Guest" : user.login;
 ```
 
-_ProTip :_ Si l'inférence ne fonctionne pas, pensez à définir un champ qui va aider Typescript à déterminer le bon type (`userType` dans notre exemple). Vous pouvez aussi identifier le type manuellement avec le mot-clé `is`.
+:::tip ProTip
+
+Si l'inférence ne fonctionne pas, pensez à définir un champ qui va aider Typescript à déterminer le bon type (`userType` dans notre exemple). Vous pouvez aussi identifier le type manuellement avec le mot-clé `is`.
 
 ```ts
 const isAdmin = (user: User): user is AdminUser =>
@@ -168,6 +170,8 @@ const users: User[] = [johnDoe, customer, guest];
 
 users.filter(isAdmin).forEach((admin) => console.log(admin.accessRights));
 ```
+
+:::
 
 ## Conclusion
 

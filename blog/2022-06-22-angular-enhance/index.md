@@ -38,15 +38,27 @@ Sur la première page des deux applications (https://papa-heroes-angular.azurewe
 
 Cela représente presque 20% de moins pour l'application en React. Même si l'écart se réduit (en pourcentage) quand l'application prend de l'ampleur, la taille et la performance de nos applications est un élément crucial de l'expérience utilisateur. La performance et les optimisations sont souvent mentionnées dans la [roadmap](https://angular.io/guide/roadmap), espérons que cela continue !
 
-_NB: Il existe également une application Vue dans le même thème, cependant il semble ne pas y avoir de code-splitting au niveau des routes. Etant donné que l'on ne mesure pas la même chose, la comparaison n'a pas de sens (il y a plus de 3 Mo d'assets pour l'application Heroes Vue)._
+:::note
 
-_NB: Au moment de l'écriture de cet article, les applications ont quelques versions de retard (Angular 14, React 18). Les chiffres mentionnés précédemment sont potentiellement obsolètes._
+Il existe également une application Vue dans le même thème, cependant il semble ne pas y avoir de code-splitting au niveau des routes. Etant donné que l'on ne mesure pas la même chose, la comparaison n'a pas de sens (il y a plus de 3 Mo d'assets pour l'application Heroes Vue).
+
+:::
+
+:::note
+
+Au moment de l'écriture de cet article, les applications ont quelques versions de retard (Angular 14, React 18). Les chiffres mentionnés précédemment sont potentiellement obsolètes.
+
+:::
 
 ## Server-side rendering (SSR)
 
 Lorsque l'on fait de la génération de page côté client, les frameworks Javascript vont jouer un certain nombre d'actions au niveau du client (requêtes HTTP, construction du state, etc.). Pourtant, quand on regarde le fonctionnement de [Qwik](https://qwik.builder.io/), on remarque que la majorité des frameworks frontend pourrait également réduire ces opérations faites par le navigateur quand on fait du SSR. Sans forcément aller aussi loin que Qwik, on pourrait faciliter la transmission des états depuis le serveur (en utilisant systématiquement le [TransferState](https://angular.io/api/platform-browser/TransferState) par exemple). Cela nous permettrait d'avoir automatiquement en cache les requêtes HTTP et le state de l'application sans configuration supplémentaire.
 
-_NB: Aujourd'hui, c'est à vous de configurer le TransferState pour l'utiliser. A titre d'exemple, si vous voulez récupérer les requêtes HTTP utilisées pour la génération de la page serveur, vous devez écrire un intercepteur HTTP qui va insérer dans le TransferState lors du contexte serveur, et lire depuis le TransferState quand on est au niveau du navigateur._
+:::note
+
+Aujourd'hui, c'est à vous de configurer le TransferState pour l'utiliser. A titre d'exemple, si vous voulez récupérer les requêtes HTTP utilisées pour la génération de la page serveur, vous devez écrire un intercepteur HTTP qui va insérer dans le TransferState lors du contexte serveur, et lire depuis le TransferState quand on est au niveau du navigateur.
+
+:::
 
 De plus, on pourrait également alléger la partie _browser_ car le serveur a déjà traité la génération de la page. En effet, si on récupère la page générée et les différents états, nous n'avons plus besoin d'avoir le code Javascript permettant de (re)générer la page actuelle. C'est l'un des arguments principaux de Qwik et il est pertinent car ni Angular, ni d'autres frameworks actuels sont matures à ce sujet.
 
