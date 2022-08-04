@@ -13,7 +13,11 @@ Cet article se rapproche de ce qui a été fait par Grafikart en comparant Vue �
 
 Disclaimer : L'objectif de ce Deep dive est d'étudier la performance des templates Angular et de comparer leur fonctionnement avec ceux des concurrents directs. La performance d'un framework frontend ne peut et ne doit se résoudre à cette analyse. De même, elle ne peut s'en soustraire.
 
-Précision technique : La notion de template en Angular peut faire référence à la partie d'un composant écrite en HTML, mais aussi à un `<ng-template>`. Ce double sens peut parfois rendre le propos confus. Si tel est le cas, vous pouvez bien évidemment m'en faire part directement, cela n'en sera que bénéfique pour les prochains lecteurs.
+:::caution Précision technique
+
+La notion de template en Angular peut faire référence à la partie d'un composant écrite en HTML, mais aussi à un `<ng-template>`. Ce double sens peut parfois rendre le propos confus. Si tel est le cas, vous pouvez bien évidemment m'en faire part directement, cela n'en sera que bénéfique pour les prochains lecteurs.
+
+:::
 
 ## Les blocs statiques
 

@@ -85,12 +85,16 @@ interface PrivateLibConfig {
 }
 ```
 
-_ProTip : Pensez à combiner l'optional chaining avec le nullish coalescing operator pour éviter les initialisations à undefined._
+:::tip ProTip
+
+Pensez à combiner l'optional chaining avec le nullish coalescing operator pour éviter les initialisations à undefined.
 
 ```ts
 // will never be undefined
 const animation = animationStyle?.toUpperCase() ?? "EASE-IN";
 ```
+
+:::
 
 ## Conclusion
 

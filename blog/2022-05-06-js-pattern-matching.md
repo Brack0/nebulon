@@ -7,7 +7,11 @@ tags: [javascript, tutorial, programming, french]
 
 Non malheureusement ce n'est pas (encore) possible en Javascript, ni en Typescript. Mais on peut essayer de s'en rapprocher, notamment en séparant l'identification d'un scénario de son exécution. L'objectif est de renforcer la lisibilité et rapprocher le code du problème à résoudre. Pour illustrer le propos, nous utiliserons le traitement d'un article de blog (ajout, suppression, publication, etc.) à partir des informations contenues dans cet article. De plus, je vous propose d'y aller étape par étape afin que vous puissiez appliquer ce refactoring dans votre code.
 
-NB : Les extraits de code présentés ci-dessous sont en Typescript et reposent sur la programmation fonctionnelle. Donc pas de classes et pas d'héritage, mais des data, des fonctions et aussi des fonctions de fonctions.
+:::note
+
+Les extraits de code présentés ci-dessous sont en Typescript et reposent sur la programmation fonctionnelle. Donc pas de classes et pas d'héritage, mais des data, des fonctions et aussi des fonctions de fonctions.
+
+:::
 
 <!--truncate-->
 
