@@ -90,6 +90,10 @@ const config = {
                 label: "LinkedIn",
                 href: "https://www.linkedin.com/in/denis-souron/",
               },
+              {
+                label: "Pluralsight",
+                href: "https://app.pluralsight.com/profile/denis-souron",
+              },
             ],
           },
           {
