@@ -5,6 +5,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader";
 import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader";
+import { useColorMode } from "@docusaurus/theme-common";
 
 const TEXTURE_PATH = "./img/vaporwave/grid.png";
 const DISPLACEMENT_PATH = "./img/vaporwave/displacement.png";
@@ -12,6 +13,7 @@ const METALNESS_PATH = "./img/vaporwave/metalness.png";
 
 export default function Vaporwave(): JSX.Element {
   const mountRef = useRef(null);
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     // Textures
@@ -24,9 +26,16 @@ export default function Vaporwave(): JSX.Element {
 
     // Scene
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(
+      { dark: 0x000000, light: 0xffffff }[colorMode]
+    );
 
     // Fog
-    const fog = new THREE.Fog("#000000", 1, 2.5);
+    const fog = new THREE.Fog(
+      { dark: "#000000", light: "#FFFFFF" }[colorMode],
+      1,
+      2.5
+    );
     scene.fog = fog;
 
     // Objects
@@ -72,7 +81,7 @@ export default function Vaporwave(): JSX.Element {
 
     // Right Spotlight aiming to the left
     const spotlight = new THREE.SpotLight(
-      "#77acc5",
+      { dark: "#77acc5", light: "#3a6f88" }[colorMode],
       20,
       25,
       Math.PI * 0.1,
@@ -88,7 +97,7 @@ export default function Vaporwave(): JSX.Element {
 
     // Left Spotlight aiming to the right
     const spotlight2 = new THREE.SpotLight(
-      "#77acc5",
+      { dark: "#77acc5", light: "#3a6f88" }[colorMode],
       20,
       25,
       Math.PI * 0.1,
@@ -179,7 +188,7 @@ export default function Vaporwave(): JSX.Element {
     };
 
     tick();
-  }, []);
+  }, [colorMode]);
 
   return <canvas ref={mountRef} className="webgl"></canvas>;
 }
