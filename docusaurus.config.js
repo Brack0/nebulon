@@ -124,6 +124,14 @@ const config = {
               },
             ],
           },
+          {
+            title: "Support me",
+            items: [
+              {
+                html: `<a href="https://www.buymeacoffee.com/brack0" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>`,
+              },
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Nebulon. Built with Docusaurus 2. Hosted on Vercel.`,
       },
