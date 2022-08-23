@@ -1,0 +1,13 @@
+.description {
+  padding: 2rem 0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+@media screen and (max-width: 996px) {
+  .hideMobile {
+    display: none;
+  }
+}

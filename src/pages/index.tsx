@@ -1,4 +1,4 @@
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import HomepageDescription from "@site/src/components/HomepageDescription";
 import Layout from "@theme/Layout";
 import React from "react";
 import HomepageHeader from "../components/HomepageHeader";
@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
     >
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <HomepageDescription />
       </main>
     </Layout>
   );
