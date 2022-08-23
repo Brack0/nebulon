@@ -73,6 +73,6 @@ De votre côté, avez-vous déjà été tenté par d'autres solutions que Redux 
 
 :::tip Impossibilité d'agir
 
-Si vous ou votre équipe êtes pieds et poings liés sur l'ensemble des solutions techniques, fuez.
+Si vous ou votre équipe êtes pieds et poings liés sur l'ensemble des solutions techniques, fuyez !
 
 :::
