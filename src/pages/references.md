@@ -27,6 +27,7 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 - [The Misalignment of Product Architecture and Organizational Structure in Complex Product Development](http://web.mit.edu/eppinger/www/pdf/Sosa_MS2004.pdf)
 - [Focus refactoring on what matters with Hotspots Analysis](https://understandlegacycode.com/blog/focus-refactoring-with-hotspots-analysis/)
 - [How to make small steps go a long way](https://how-to.dev/how-to-make-small-steps-go-a-long-way)
+- [Clean Architecture on Frontend](https://bespoyasov.me/blog/clean-architecture-on-frontend/)
 
 ## Conférences
 
