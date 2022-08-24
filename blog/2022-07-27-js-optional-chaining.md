@@ -100,5 +100,6 @@ const animation = animationStyle?.toUpperCase() ?? "EASE-IN";
 
 Dans certains cas, l'usage de l'optional chaining masque un problème plus profond sur les données manipulées. Gardez votre esprit critique et prenez du recul face à cet opérateur. Est-ce pertinent de l'utiliser (comme la configuration d'une librairie qui propose beaucoup d'options, ex : [configuration Vite](https://github.com/vitejs/vite/blob/c78e4099e502876a2ab23fd8163455d8172ff5b7/packages/vite/src/node/config.ts#L103)) ou est-ce une solution palliative d'un autre problème (imprécision dans le typage, incertitude sur les données présentes, absence de valeurs par défaut) ?
 
-Pour prolonger la réflexion sur la pertinence d'un bon typage, je vous invite à lire cet article : [Making Invalid State Unrepresentable](https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html)
+Pour prolonger la réflexion sur la pertinence d'un bon typage, je vous invite à lire cet article : [Making Invalid State Unrepresentable](https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html).
+
 Pour creuser les aspects "fail fast" et "périmètre de l'incertitude", je vous recommande la méthode [impure/pure/impure sandwitch](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/).
