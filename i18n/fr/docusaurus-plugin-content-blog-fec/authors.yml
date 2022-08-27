@@ -1,0 +1,21 @@
+dsouron:
+  name: Denis Souron
+  title: Lead Developer Fullstack
+  url: https://github.com/brack0
+  image_url: https://avatars.githubusercontent.com/u/9846217?v=4
+
+bauzanneau:
+  name: Benjamin Auzanneau
+  title: Lead Developer Front-End
+  url: https://github.com/necraidan
+  image_url: https://avatars.githubusercontent.com/u/1424833?v=4
+
+tnicoleau:
+  name: Tristan Nicoleau
+  title: Developer Front-End
+  image_url: /img/fec/tnicoleau.png
+
+gdupont:
+  name: Gaël Dupont
+  title: Developer Front-End
+  image_url: /img/fec/gdupont.png

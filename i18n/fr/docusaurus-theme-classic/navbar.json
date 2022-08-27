@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "brack0.dev",
+    "description": "The title in the navbar"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Front-End Chronicles": {
+    "message": "Front-End Chronicles",
+    "description": "Navbar item with label Front-End Chronicles"
+  },
+  "item.label.References": {
+    "message": "Références",
+    "description": "Navbar item with label References"
+  },
+  "item.label.About": {
+    "message": "A propos",
+    "description": "Navbar item with label About"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.GitLab": {
+    "message": "GitLab",
+    "description": "Navbar item with label GitLab"
+  }
+}

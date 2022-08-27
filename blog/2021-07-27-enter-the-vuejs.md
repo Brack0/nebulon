@@ -2,7 +2,7 @@
 slug: enter-the-vuejs
 title: "Enter the Vue.js"
 authors: [dsouron, bauzanneau]
-tags: [frontend, conference, vuejs, french]
+tags: [VueJS, Conference, Programming, French]
 ---
 
 Dans le monde du développement frontend, React et Angular sont les frameworks qui dominent le marché. Cependant, Vue.js est clairement un challenger à ne pas prendre à la légère.

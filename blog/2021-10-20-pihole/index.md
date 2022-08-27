@@ -2,7 +2,7 @@
 slug: pihole
 title: "Pi-hole : Take back control of your network"
 authors: dsouron
-tags: [network, dns, home automation, english]
+tags: [Home Automation, DNS, Network, English]
 ---
 
 ## Get started

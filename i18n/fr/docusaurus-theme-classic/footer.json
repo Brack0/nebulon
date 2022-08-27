@@ -1,0 +1,50 @@
+{
+  "link.title.About Me": {
+    "message": "A propos",
+    "description": "The title of the footer links column with title=About Me in the footer"
+  },
+  "link.title.Community": {
+    "message": "Communauté",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "Voir plus",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.title.Support Me": {
+    "message": "Me soutenir",
+    "description": "The title of the footer links column with title=Support me in the footer"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/in/denis-souron/"
+  },
+  "link.item.label.Pluralsight": {
+    "message": "Pluralsight",
+    "description": "The label of footer link with label=Pluralsight linking to https://app.pluralsight.com/profile/denis-souron"
+  },
+  "link.item.label.Dev.to": {
+    "message": "Dev.to",
+    "description": "The label of footer link with label=Dev.to linking to https://dev.to/brack0"
+  },
+  "link.item.label.Anchor": {
+    "message": "Anchor",
+    "description": "The label of footer link with label=Anchor linking to https://anchor.fm/front-end-chronicles"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/brack0"
+  },
+  "link.item.label.GitLab": {
+    "message": "GitLab",
+    "description": "The label of footer link with label=GitLab linking to https://gitlab.com/brack0"
+  },
+  "copyright": {
+    "message": "Copyright © 2022 Nebulon. Construit avec Docusaurus 2. Hébergé sur Vercel.",
+    "description": "The footer copyright"
+  }
+}

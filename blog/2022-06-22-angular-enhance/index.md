@@ -2,7 +2,7 @@
 slug: angular-enhance
 title: "Qu'est qu'on pourrait améliorer sur Angular ?"
 authors: dsouron
-tags: [javascript, opinion, angular, french]
+tags: [Angular, Opinion, Programming, French]
 ---
 
 Je vous propose quelques fonctionnalités qui pourrait améliorer la Developer eXperience et le framework dans sa globalité.

@@ -2,7 +2,7 @@
 slug: ts-discriminated-union
 title: "Exploiter les Discriminated Union en Typescript"
 authors: dsouron
-tags: [typescript, tutorial, programming, french]
+tags: [Typescript, Tutorial, Programming, French]
 ---
 
 ## De quoi parle-t-on ?

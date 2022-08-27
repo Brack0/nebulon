@@ -2,15 +2,15 @@
 title: References
 ---
 
-# Références
+# References
 
-Liste informelle issue de ma veille technologique, d'échanges dans le milieu professionnel et de discussion de comptoir. Je ne considère pas chaque élément comme une vérité absolue et arbitraire, au contraire, chaque référence contribue à sa manière à ma perception du développement logiciel. On y retrouve des monuments mais aussi des sources aux prétentions bien plus modestes.
+Informal list form my technology intelligence, exchanges in the professional environment and discussions around a beer. I do not consider each element as an absolute and arbitrary truth. Instead, each reference contributes in its own way to my perception of software development. There are masterpieces but also content with much more modest claims.
 
 ## Articles
 
 - [Conventional comments](https://conventionalcomments.org/)
 - [Making invalid state unrepresentable](https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html)
-- [Certaines complexités sont plus utiles que d’autres](https://www.lilobase.me/certaines-complexites-sont-plus-utiles-que-dautres/)
+- (FR) [Certaines complexités sont plus utiles que d’autres](https://www.lilobase.me/certaines-complexites-sont-plus-utiles-que-dautres/)
 - [JetBrains : Code smell](https://blog.jetbrains.com/idea/2017/08/code-smells-null/)
 - [Backend For Frontend](https://philcalcado.com/2015/09/18/the_back_end_for_front_end_pattern_bff.html)
 - [Software Development Waste](https://neverworkintheory.org/2021/08/29/software-development-waste.html)
@@ -20,8 +20,8 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 - [Impureim sandwich](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/)
 - [Can types replace validation?](https://blog.ploeh.dk/2022/08/22/can-types-replace-validation/)
 - [10 Things I Regret About Node.js — Ryan Dahl](https://medium.com/@imior/10-things-i-regret-about-node-js-ryan-dahl-2ba71ff6b4dc)
-- [TDD avec Angular](https://dev.to/utukku/test-driven-development-in-an-angular-world-3h8g)
-- [Collection d'articles désintéressés sur Angular](https://dev.to/this-is-angular)
+- [Test Driven Development in an Angular World](https://dev.to/utukku/test-driven-development-in-an-angular-world-3h8g)
+- [This is Angular](https://dev.to/this-is-angular)
 - [Tactical Domain-Driven Design with Angular and Monorepos?](https://www.angulararchitects.io/en/aktuelles/tactical-domain-driven-design-with-monorepos/)
 - [How Big Tech Runs Tech Projects](https://blog.pragmaticengineer.com/project-management-at-big-tech/)
 - [The Misalignment of Product Architecture and Organizational Structure in Complex Product Development](http://web.mit.edu/eppinger/www/pdf/Sosa_MS2004.pdf)
@@ -29,12 +29,12 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 - [How to make small steps go a long way](https://how-to.dev/how-to-make-small-steps-go-a-long-way)
 - [Clean Architecture on Frontend](https://bespoyasov.me/blog/clean-architecture-on-frontend/)
 
-## Conférences
+## Conferences
 
-- [Les microservices, c'est pas automatique](https://www.youtube.com/watch?v=_mqn0FfZ2SY) - Arnaud Lemaire
-- [Entre industrialisation et artisanat, le métier de développeur](https://www.youtube.com/watch?v=itGmiTS_IPw) - Arnaud Lemaire
+- (FR) [Les microservices, c'est pas automatique](https://www.youtube.com/watch?v=_mqn0FfZ2SY) - Arnaud Lemaire
+- (FR) [Entre industrialisation et artisanat, le métier de développeur](https://www.youtube.com/watch?v=itGmiTS_IPw) - Arnaud Lemaire
 
-## Livres
+## Books
 
 - Refactoring - Martin Fowler
 - Clean code - Robert C. Martin
@@ -45,9 +45,9 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 ### Showcases
 
 - [Decathlon Design System](https://www.decathlon.design/)
-- [Audi : Redefining Progress](https://www.audi.com/ci/en/renewed-brand.html)
+- [Audi Design System (Redefining Progress)](https://www.audi.com/ci/en/renewed-brand.html)
 
-### Apprendre par l'exemple
+### Learn by example
 
 - [CSS Flex](https://flexboxfroggy.com/)
 - [CSS Grid](https://cssgridgarden.com/)
@@ -55,7 +55,7 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 
 ## Repositories (Github/Gitlab)
 
-- [Configuration Typescript recommandées](https://github.com/tsconfig/bases)
+- [Recommanded Typescript configurations](https://github.com/tsconfig/bases)
 - [You Don't Need](https://github.com/you-dont-need)
 - [Clean code JS](https://github.com/ryanmcdermott/clean-code-javascript)
 - [Clean code TS](https://github.com/labs42io/clean-code-typescript)

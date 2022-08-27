@@ -2,7 +2,7 @@
 slug: css-compatibility
 title: "Comment gérer sa compatibilité CSS ?"
 authors: dsouron
-tags: [css, tutorial, programming, french]
+tags: [CSS, Tutorial, Programming, French]
 ---
 
 Avec l'omniprésence de Babel et Typescript dans l'univers Frontend, la compatibilité Javascript de nos applications n'est (presque) plus un sujet. Pour le HTML, seulement quelques attributs sont ajoutés depuis le HTML5 pour des fonctionnalités _bonus_ (lazyload, prefetch, etc.). Ils sont en général ignorés par les navigateurs incompatibles. Et pour le CSS ? Pas de polyfills à proprement parler, un support très hétérogène et la moindre esquive d'un `display:grid` est désastreux pour le visuel. Alors comment fait-on pour rationaliser notre CSS ? Voyons ça ensemble.

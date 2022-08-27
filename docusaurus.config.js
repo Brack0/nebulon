@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Nebulon",
-  tagline: "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
+  tagline: "The Rebel Alliance's blog vs. the Microservice Empire",
   url: "https://brack0.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -15,6 +15,11 @@ const config = {
   favicon: "img/favicon.ico",
   organizationName: "brack0", // Usually your GitHub org/user name.
   projectName: "nebulon", // Usually your repo name.
+
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "fr"],
+  },
 
   presets: [
     [
@@ -24,7 +29,7 @@ const config = {
         docs: false,
         blog: {
           blogDescription:
-            "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
+            "The Rebel Alliance's blog vs. the Microservice Empire",
           showReadingTime: true,
         },
         theme: {
@@ -39,9 +44,9 @@ const config = {
       {
         id: "fec",
         blogDescription:
-          "Retrouvez tous les épisodes du podcast Front-End Chronicles",
+          "Find all the episodes of Front-end chronicles podcast",
         blogSidebarCount: "ALL",
-        blogSidebarTitle: "Les épisodes du podcast",
+        blogSidebarTitle: "All podcast episodes",
         blogTitle: "Front-End Chronicles",
         showReadingTime: false,
         routeBasePath: "fec",
@@ -66,6 +71,11 @@ const config = {
           { to: "/blog", label: "Blog", position: "left" },
           { to: "/fec", label: "Front-End Chronicles", position: "left" },
           { to: "/references", label: "References", position: "left" },
+          { to: "/about", label: "About", position: "left" },
+          {
+            type: "localeDropdown",
+            position: "right",
+          },
           {
             href: "https://github.com/brack0",
             label: "GitHub",
@@ -125,7 +135,7 @@ const config = {
             ],
           },
           {
-            title: "Support me",
+            title: "Support Me",
             items: [
               {
                 html: `<a href="https://www.buymeacoffee.com/brack0" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>`,

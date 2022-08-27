@@ -2,7 +2,7 @@
 slug: state-management-goodbye-redux
 title: "Goodbye Redux"
 authors: dsouron
-tags: [state-management, opinion, programming, french]
+tags: [State Management, Opinion, Programming, French]
 ---
 
 Parlons de State Management au niveau d'une application. Les états locaux (React Hook, Vue Composable, Service Angular + RxJS Subject) ont un usage limité par définition. Avec l'ampleur de l'écosystème React sur le monde professionnel, Redux est devenu la réponse évidente à la problématique du State Management. Etudions ensemble le processus assez naturel qui nous amène à Redux et prenons du recul sur nos choix.
