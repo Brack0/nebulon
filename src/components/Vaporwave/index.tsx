@@ -1,23 +1,39 @@
+import { useColorMode } from "@docusaurus/theme-common";
+import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
-import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader";
 import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader";
-import { useColorMode } from "@docusaurus/theme-common";
+import styles from "./styles.module.css";
+import {
+  AmbientLight,
+  Clock,
+  Color,
+  Fog,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  PlaneGeometry,
+  Scene,
+  SpotLight,
+  TextureLoader,
+  WebGLRenderer,
+} from "three";
 
 const TEXTURE_PATH = "./img/vaporwave/grid.png";
 const DISPLACEMENT_PATH = "./img/vaporwave/displacement.png";
 const METALNESS_PATH = "./img/vaporwave/metalness.png";
 
 export default function Vaporwave(): JSX.Element {
-  const mountRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const fallbackRef = useRef<HTMLDivElement>(null);
   const { colorMode } = useColorMode();
 
   useEffect(() => {
     // Textures
-    const textureLoader = new THREE.TextureLoader();
+    const textureLoader = new TextureLoader();
     const gridTexture = textureLoader.load(TEXTURE_PATH);
     const terrainTexture = textureLoader.load(DISPLACEMENT_PATH);
     const metalnessTexture = textureLoader.load(METALNESS_PATH);
@@ -25,13 +41,13 @@ export default function Vaporwave(): JSX.Element {
     const canvas = document.querySelector("canvas.webgl");
 
     // Scene
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(
+    const scene = new Scene();
+    scene.background = new Color(
       { dark: 0x000000, light: 0xffffff }[colorMode]
     );
 
     // Fog
-    const fog = new THREE.Fog(
+    const fog = new Fog(
       { dark: "#000000", light: "#FFFFFF" }[colorMode],
       1,
       2.5
@@ -39,8 +55,8 @@ export default function Vaporwave(): JSX.Element {
     scene.fog = fog;
 
     // Objects
-    const geometry = new THREE.PlaneGeometry(1, 2, 24, 24);
-    const material = new THREE.MeshStandardMaterial({
+    const geometry = new PlaneGeometry(1, 2, 24, 24);
+    const material = new MeshStandardMaterial({
       map: gridTexture,
       displacementMap: terrainTexture,
       displacementScale: 0.4,
@@ -61,12 +77,12 @@ export default function Vaporwave(): JSX.Element {
       roughness: 0.5,
     });
 
-    const plane = new THREE.Mesh(geometry, material);
+    const plane = new Mesh(geometry, material);
     plane.rotation.x = -Math.PI * 0.5;
     plane.position.y = 0.0;
     plane.position.z = 0.15;
 
-    const plane2 = new THREE.Mesh(geometry, material);
+    const plane2 = new Mesh(geometry, material);
     plane2.rotation.x = -Math.PI * 0.5;
     plane2.position.y = 0.0;
     plane2.position.z = -1.85; // 0.15 - 2 (the length of the first plane)
@@ -76,11 +92,11 @@ export default function Vaporwave(): JSX.Element {
 
     // Light
     // Ambient Light
-    const ambientLight = new THREE.AmbientLight("#ffffff", 10);
+    const ambientLight = new AmbientLight("#ffffff", 10);
     scene.add(ambientLight);
 
     // Right Spotlight aiming to the left
-    const spotlight = new THREE.SpotLight(
+    const spotlight = new SpotLight(
       { dark: "#77acc5", light: "#3a6f88" }[colorMode],
       20,
       25,
@@ -96,7 +112,7 @@ export default function Vaporwave(): JSX.Element {
     scene.add(spotlight.target);
 
     // Left Spotlight aiming to the right
-    const spotlight2 = new THREE.SpotLight(
+    const spotlight2 = new SpotLight(
       { dark: "#77acc5", light: "#3a6f88" }[colorMode],
       20,
       25,
@@ -118,7 +134,7 @@ export default function Vaporwave(): JSX.Element {
     };
 
     // Camera
-    const camera = new THREE.PerspectiveCamera(
+    const camera = new PerspectiveCamera(
       37.5,
       sizes.width / sizes.height,
       0.01,
@@ -129,7 +145,7 @@ export default function Vaporwave(): JSX.Element {
     camera.position.z = 1.1;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({
+    const renderer = new WebGLRenderer({
       canvas: canvas,
     });
     renderer.setSize(sizes.width, sizes.height);
@@ -170,7 +186,7 @@ export default function Vaporwave(): JSX.Element {
       effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-    const clock = new THREE.Clock();
+    const clock = new Clock();
 
     // Animate
     const tick = () => {
@@ -187,8 +203,16 @@ export default function Vaporwave(): JSX.Element {
       window.requestAnimationFrame(tick);
     };
 
+    canvasRef.current.style.display = "block";
+    fallbackRef.current.style.display = "none";
+
     tick();
   }, [colorMode]);
 
-  return <canvas ref={mountRef} className="webgl"></canvas>;
+  return (
+    <>
+      <div ref={fallbackRef} className={styles.fallback}></div>
+      <canvas ref={canvasRef} className={clsx("webgl", styles.canvas)}></canvas>
+    </>
+  );
 }

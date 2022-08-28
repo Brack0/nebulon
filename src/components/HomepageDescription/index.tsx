@@ -1,3 +1,4 @@
+import Head from "@docusaurus/Head";
 import Translate from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import clsx from "clsx";
@@ -10,8 +11,18 @@ export default function HomepageDescription(): JSX.Element {
       <div className="container">
         <div className="row">
           <div className={clsx("col col--4", styles.hideMobile)}>
+            <Head>
+              <link
+                rel="preload"
+                href={useBaseUrl("/img/ts-logo-512.svg")}
+                as="image"
+                media="(min-width: 997px)"
+              />
+            </Head>
             <img
               src={useBaseUrl("/img/ts-logo-512.svg")}
+              height="512"
+              width="512"
               alt="Typescript Logo"
             />
           </div>

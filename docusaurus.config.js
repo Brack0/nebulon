@@ -66,6 +66,8 @@ const config = {
         logo: {
           alt: "My Site Logo",
           src: "img/logo.svg",
+          height: "32",
+          width: "40",
         },
         items: [
           { to: "/blog", label: "Blog", position: "left" },
