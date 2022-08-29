@@ -5,7 +5,7 @@ authors: dsouron
 tags: [Angular, Opinion, Programmation, Français]
 ---
 
-Je vous propose quelques fonctionnalités qui pourrait améliorer la Developer eXperience et le framework dans sa globalité.
+Je vous propose quelques fonctionnalités qui pourraient améliorer la Developer eXperience et le framework dans sa globalité.
 
 <!--truncate-->
 
@@ -36,7 +36,7 @@ Sur la première page des deux applications (https://papa-heroes-angular.azurewe
 
 ![Assets téléchargés en React : 754 Ko](./heroes-react.png)
 
-Cela représente presque 20% de moins pour l'application en React. Même si l'écart se réduit (en pourcentage) quand l'application prend de l'ampleur, la taille et la performance de nos applications est un élément crucial de l'expérience utilisateur. La performance et les optimisations sont souvent mentionnées dans la [roadmap](https://angular.io/guide/roadmap), espérons que cela continue !
+Cela représente presque 20% de moins pour l'application en React. Même si l'écart se réduit (en pourcentage) quand l'application prend de l'ampleur, la taille et la performance de nos applications sont un élément crucial de l'expérience utilisateur. La performance et les optimisations sont souvent mentionnées dans la [roadmap](https://angular.io/guide/roadmap), espérons que cela continue !
 
 :::note
 
