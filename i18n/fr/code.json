@@ -3,6 +3,10 @@
     "message": "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
     "description": "The homepage tagline"
   },
+  "homepage.meta.description": {
+    "message": "Le blog de l'Alliance Rebelle contre l'Empire du Microservice. Les histoires d'un développeur, blogueur intermittent et co-animateur du podcast Front-end-chronicles.",
+    "description": "The meta description for homepage"
+  },
   "homepage.description.hello": {
     "message": "Salut à tous 👋 !",
     "description": "The label for hello there !"
