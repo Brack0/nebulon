@@ -9,7 +9,7 @@ import HomepageHeader from "../components/HomepageHeader";
 export default function Home(): JSX.Element {
   return (
     <Layout
-      title={`127.0.0.1`}
+      title={"Home"}
       description={translate({
         id: "homepage.meta.description",
         message:
