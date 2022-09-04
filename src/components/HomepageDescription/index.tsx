@@ -2,17 +2,18 @@ import Head from "@docusaurus/Head";
 import { useColorMode } from "@docusaurus/theme-common";
 import Translate, { translate } from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 import React from "react";
 import styles from "./styles.module.css";
 
 export default function HomepageDescription(): JSX.Element {
-  const { colorMode } = useColorMode();
-  const logosImgUrl = (
-    {
-      dark: "/img/home/logos-dark.png",
-      light: "/img/home/logos-light.png",
-    } as const
-  )[colorMode];
+  const { isDarkTheme } = useColorMode();
+  const isBrowser = useIsBrowser();
+
+  const logosImgUrl =
+    isBrowser && !isDarkTheme
+      ? "/img/home/logos-light.png"
+      : "/img/home/logos-dark.png";
 
   return (
     <section className={styles.description}>
