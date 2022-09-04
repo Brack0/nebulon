@@ -7,13 +7,12 @@ import React from "react";
 import styles from "./styles.module.css";
 
 export default function HomepageDescription(): JSX.Element {
-  const { isDarkTheme } = useColorMode();
+  const { colorMode } = useColorMode();
   const isBrowser = useIsBrowser();
-
   const logosImgUrl =
-    isBrowser && !isDarkTheme
-      ? "/img/home/logos-light.png"
-      : "/img/home/logos-dark.png";
+    isBrowser && colorMode === "light"
+      ? "/img/home/logos-light.webp"
+      : "/img/home/logos-dark.webp";
 
   return (
     <section className={styles.description}>
