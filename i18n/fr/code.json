@@ -19,6 +19,10 @@
     "message": "Plusieurs logos combinés ensemble. Les logos affichés sont Angular, Javascript, React, VueJS, Typescript et Visual Studio Code.",
     "description": "Alternative description for logos in homepage"
   },
+  "vaporwave.enable": {
+    "message": "Cliquer pour lancer l'animation",
+    "description": "The vaporwave enable button label"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Cette page a planté.",
     "description": "The title of the fallback page when the page crashed"
