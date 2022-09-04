@@ -15,6 +15,10 @@
     "message": "Je m'appelle {name}. Je suis développeur, blogueur intermittent et co-animateur du podcast Front-end-chronicles.",
     "description": "The small text to describe me"
   },
+  "homepage.description.logosAlt": {
+    "message": "Plusieurs logos combinés ensemble. Les logos affichés sont Angular, Javascript, React, VueJS, Typescript et Visual Studio Code.",
+    "description": "Alternative description for logos in homepage"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Cette page a planté.",
     "description": "The title of the fallback page when the page crashed"

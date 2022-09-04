@@ -49,3 +49,13 @@
 .markdown {
   --ifm-link-decoration: underline;
 }
+
+.row--reverse {
+  flex-direction: row-reverse;
+}
+
+@media screen and (min-width: 997px) {
+  .col--reverse-offset-2 {
+    margin-right: calc(2 / 12 * 100%);
+  }
+}

@@ -12,7 +12,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/global/favicon.ico",
   organizationName: "brack0", // Usually your GitHub org/user name.
   projectName: "nebulon", // Usually your repo name.
 
@@ -65,7 +65,7 @@ const config = {
         title: "brack0.dev",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "img/global/logo.svg",
           height: "32",
           width: "40",
         },

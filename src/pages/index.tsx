@@ -20,7 +20,7 @@ export default function Home(): JSX.Element {
       <Head>
         <meta
           property="og:image"
-          content={useBaseUrl("/img/nebulon_preview.png")}
+          content={useBaseUrl("/img/home/nebulon_preview.png")}
         />
       </Head>
       <HomepageHeader />

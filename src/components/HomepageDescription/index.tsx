@@ -1,32 +1,24 @@
 import Head from "@docusaurus/Head";
-import Translate from "@docusaurus/Translate";
+import { useColorMode } from "@docusaurus/theme-common";
+import Translate, { translate } from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import clsx from "clsx";
 import React from "react";
 import styles from "./styles.module.css";
 
 export default function HomepageDescription(): JSX.Element {
+  const { colorMode } = useColorMode();
+  const logosImgUrl = (
+    {
+      dark: "/img/home/logos-dark.png",
+      light: "/img/home/logos-light.png",
+    } as const
+  )[colorMode];
+
   return (
     <section className={styles.description}>
       <div className="container">
-        <div className="row">
-          <div className={clsx("col col--4", styles.hideMobile)}>
-            <Head>
-              <link
-                rel="preload"
-                href={useBaseUrl("/img/ts-logo-512.svg")}
-                as="image"
-                media="(min-width: 997px)"
-              />
-            </Head>
-            <img
-              src={useBaseUrl("/img/ts-logo-512.svg")}
-              height="512"
-              width="512"
-              alt="Typescript Logo"
-            />
-          </div>
-          <div className="col col--6">
+        <div className="row row--reverse">
+          <div className="col col--6 col--reverse-offset-2 padding-bottom--lg">
             <p>
               <Translate
                 id="homepage.description.hello"
@@ -36,7 +28,7 @@ export default function HomepageDescription(): JSX.Element {
               </Translate>
             </p>
 
-            <p>
+            <div>
               <Translate
                 id="homepage.description.me"
                 description="The small text to describe me"
@@ -48,7 +40,29 @@ export default function HomepageDescription(): JSX.Element {
                   "My name is {name}. I am a developer, casual blogger & co-host of Front-end chronicles podcast."
                 }
               </Translate>
-            </p>
+            </div>
+          </div>
+          <div className="col col--4">
+            <Head>
+              <link
+                rel="preload"
+                href={useBaseUrl(logosImgUrl)}
+                as="image"
+                media="(min-width: 997px)"
+              />
+            </Head>
+            <img
+              src={useBaseUrl(logosImgUrl)}
+              className={styles.fullHeight}
+              height="410"
+              width="410"
+              alt={translate({
+                id: "homepage.description.logosAlt",
+                message:
+                  "Multiple logos combined together. Logos displayed are Angular, Javascript, React, VueJS, Typescript and Visual Studio Code.",
+                description: "Alternative description for logos in homepage",
+              })}
+            />
           </div>
         </div>
       </div>
