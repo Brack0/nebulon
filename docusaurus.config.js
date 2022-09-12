@@ -148,7 +148,7 @@ const config = {
             title: "Support Me",
             items: [
               {
-                html: `<a href="//www.buymeacoffee.com/brack0" target="_blank"><img src="//cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>`,
+                html: `<a href="//ko-fi.com/brack0" target="_blank"><img src="img/global/ko-fi.png" srcset="img/global/ko-fi@2x.png 2x, img/global/ko-fi@3x.png 3x" alt="Buy Me A Coffee" height="46" width="205" ></a>`,
               },
             ],
           },
