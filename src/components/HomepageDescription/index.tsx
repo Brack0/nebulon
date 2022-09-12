@@ -9,10 +9,18 @@ import styles from "./styles.module.css";
 export default function HomepageDescription(): JSX.Element {
   const { colorMode } = useColorMode();
   const isBrowser = useIsBrowser();
-  const logosImgUrl =
+  const logosImgSrc =
     isBrowser && colorMode === "light"
-      ? "/img/home/logos-light.webp"
-      : "/img/home/logos-dark.webp";
+      ? useBaseUrl("/img/home/logos-light.webp")
+      : useBaseUrl("/img/home/logos-dark.webp");
+  const logosImgSrcSet =
+    isBrowser && colorMode === "light"
+      ? `${useBaseUrl("/img/home/logos-light@2x.webp")} 2x, ${useBaseUrl(
+          "/img/home/logos-light@3x.webp"
+        )} 3x`
+      : `${useBaseUrl("/img/home/logos-dark@2x.webp")} 2x, ${useBaseUrl(
+          "/img/home/logos-dark@3x.webp"
+        )} 3x`;
 
   return (
     <section className={styles.description}>
@@ -46,13 +54,15 @@ export default function HomepageDescription(): JSX.Element {
             <Head>
               <link
                 rel="preload"
-                href={useBaseUrl(logosImgUrl)}
+                href={logosImgSrc}
+                imageSrcSet={logosImgSrcSet}
                 as="image"
                 media="(min-width: 997px)"
               />
             </Head>
             <img
-              src={useBaseUrl(logosImgUrl)}
+              src={logosImgSrc}
+              srcSet={logosImgSrcSet}
               className={styles.fullHeight}
               height="410"
               width="410"
