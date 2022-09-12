@@ -1,4 +1,8 @@
 {
+  "homepage.meta.title": {
+    "message": "Bienvenue à bord du Nebulon",
+    "description": "The title for homepage"
+  },
   "homepage.tagline": {
     "message": "Le blog de l'Alliance Rebelle contre l'Empire du Microservice",
     "description": "The homepage tagline"

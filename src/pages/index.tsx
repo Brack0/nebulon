@@ -9,7 +9,11 @@ import HomepageHeader from "../components/HomepageHeader";
 export default function Home(): JSX.Element {
   return (
     <Layout
-      title={"Home"}
+      title={translate({
+        id: "homepage.meta.title",
+        message: "Welcome aboard the Nebulon",
+        description: "The title for homepage",
+      })}
       description={translate({
         id: "homepage.meta.description",
         message:
@@ -22,6 +26,10 @@ export default function Home(): JSX.Element {
           property="og:image"
           content={useBaseUrl("/img/home/nebulon_preview.png")}
         />
+        <meta property="og:type" content="profile" />
+        <meta property="og:profile:first_name" content="Denis" />
+        <meta property="og:profile:last_name " content="Souron" />
+        <meta property="og:profile:username" content="brack0" />
       </Head>
       <HomepageHeader />
       <main>

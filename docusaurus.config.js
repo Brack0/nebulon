@@ -3,6 +3,12 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+// Provide Open Graph prefix for all pages
+const ssrTemplate =
+  require("@docusaurus/core/lib/webpack/templates/ssr.html.template").default.replace(
+    "<html",
+    '<html prefix="og: https://ogp.me/ns#"'
+  );
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -15,6 +21,7 @@ const config = {
   favicon: "img/global/favicon.ico",
   organizationName: "brack0", // Usually your GitHub org/user name.
   projectName: "nebulon", // Usually your repo name.
+  ssrTemplate,
 
   i18n: {
     defaultLocale: "en",
@@ -61,6 +68,7 @@ const config = {
       colorMode: {
         defaultMode: "dark",
       },
+      metadata: [{ property: "og:type", content: "website" }],
       navbar: {
         title: "brack0.dev",
         logo: {
@@ -79,12 +87,12 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/brack0",
+            href: "//github.com/brack0",
             label: "GitHub",
             position: "right",
           },
           {
-            href: "https://gitlab.com/brack0",
+            href: "//gitlab.com/brack0",
             label: "GitLab",
             position: "right",
           },
@@ -98,11 +106,11 @@ const config = {
             items: [
               {
                 label: "LinkedIn",
-                href: "https://www.linkedin.com/in/denis-souron/",
+                href: "//www.linkedin.com/in/denis-souron/",
               },
               {
                 label: "Pluralsight",
-                href: "https://app.pluralsight.com/profile/denis-souron",
+                href: "//app.pluralsight.com/profile/denis-souron",
               },
             ],
           },
@@ -111,11 +119,11 @@ const config = {
             items: [
               {
                 label: "Dev.to",
-                href: "https://dev.to/brack0",
+                href: "//dev.to/brack0",
               },
               {
                 label: "Anchor",
-                href: "https://anchor.fm/front-end-chronicles",
+                href: "//anchor.fm/front-end-chronicles",
               },
             ],
           },
@@ -128,11 +136,11 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/brack0",
+                href: "//github.com/brack0",
               },
               {
                 label: "GitLab",
-                href: "https://gitlab.com/brack0",
+                href: "//gitlab.com/brack0",
               },
             ],
           },
@@ -140,7 +148,7 @@ const config = {
             title: "Support Me",
             items: [
               {
-                html: `<a href="https://www.buymeacoffee.com/brack0" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>`,
+                html: `<a href="//www.buymeacoffee.com/brack0" target="_blank"><img src="//cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>`,
               },
             ],
           },

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brack0.dev/sitemap.xml
+Sitemap: https://brack0.dev/fr/sitemap.xml
