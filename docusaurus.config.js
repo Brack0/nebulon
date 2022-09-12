@@ -69,6 +69,11 @@ const config = {
         defaultMode: "dark",
       },
       metadata: [{ property: "og:type", content: "website" }],
+      algolia: {
+        appId: "YOUR_APP_ID",
+        apiKey: "YOUR_SEARCH_API_KEY",
+        indexName: "YOUR_INDEX_NAME",
+      },
       navbar: {
         title: "brack0.dev",
         logo: {

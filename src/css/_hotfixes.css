@@ -1,0 +1,10 @@
+/* Use monospace for navbar */
+.navbar {
+  font: var(--ifm-font-size-base) / var(--ifm-line-height-base)
+    var(--ifm-font-family-monospace);
+}
+
+/* Use underline for links in markdown content */
+.markdown {
+  --ifm-link-decoration: underline;
+}
