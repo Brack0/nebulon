@@ -70,9 +70,9 @@ const config = {
       },
       metadata: [{ property: "og:type", content: "website" }],
       algolia: {
-        appId: "YOUR_APP_ID",
-        apiKey: "YOUR_SEARCH_API_KEY",
-        indexName: "YOUR_INDEX_NAME",
+        appId: "HTJ7YUHSQ1",
+        apiKey: "f9145cd804b6e028583266f2568f283c",
+        indexName: "brack0",
       },
       navbar: {
         title: "brack0.dev",
