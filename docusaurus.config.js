@@ -71,8 +71,8 @@ const config = {
       metadata: [{ property: "og:type", content: "website" }],
       algolia: {
         appId: "HTJ7YUHSQ1",
-        apiKey: "f9145cd804b6e028583266f2568f283c",
-        indexName: "brack0",
+        apiKey: "7eb295a5197051772951655cb37497c4",
+        indexName: "crawler_brack0.dev",
       },
       navbar: {
         title: "brack0.dev",
