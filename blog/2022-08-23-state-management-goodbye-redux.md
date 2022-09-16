@@ -9,7 +9,7 @@ Parlons de State Management au niveau d'une application. Les états locaux (Reac
 
 <!--truncate-->
 
-Disclaimer : Si vous vouliez avoir un plaidoyer sur GraphQL, c'est raté. Rassurez-vous, il existe pleins d'autres articles qui en parle. Ici, nous allons nous concentrer sur la notion de State Management et pas sur les impacts que pourrait avoir une API comme GraphQL sur votre architecture et votre State Management.
+Disclaimer : Si vous vouliez avoir un plaidoyer sur GraphQL, c'est raté. Rassurez-vous, il existe plein d'autres articles qui en parle. Ici, nous allons nous concentrer sur la notion de State Management et pas sur les impacts que pourrait avoir une API comme GraphQL sur votre architecture et votre State Management.
 
 ## Getting started
 
@@ -39,7 +39,7 @@ Pour simplifier les usages au sein de l'application, vous vous lancez alors dans
 
 ## What's wrong ?
 
-Alors qu'est-ce qui ne va pas dans notre solution ? La réponse est finalement assez simple quand on prend du recul sur le scénario exposé, la solution est disproportionnée par rapport aux usages qui en sont fait. La puissance de Redux est apportée par un découplage extrême entre les éléments. Sans pour autant être problématique, ajouter des façades réintroduit un peu de couplage. En conclusion, la solution est lourde à implémenter (pattern Redux), mais sans en tirer tous les avantages (couplage apportée par les façades). Une situation qui est résumé par Mike Ryan (co-fondateur de NgRx) dans un tweet :
+Alors qu'est-ce qui ne va pas dans notre solution ? La réponse est finalement assez simple quand on prend du recul sur le scénario exposé, la solution est disproportionnée par rapport aux usages qui en sont faits. La puissance de Redux est apportée par un découplage extrême entre les éléments. Sans pour autant être problématique, ajouter des façades réintroduit un peu de couplage. En conclusion, la solution est lourde à implémenter (pattern Redux), mais sans en tirer tous les avantages (couplage apporté par les façades). Une situation qui est résumée par Mike Ryan (co-fondateur de NgRx) dans un tweet :
 
 > The Redux pattern has a high code cost to achieve indirection. Turning around and removing the indirection with facades makes me wonder why you are paying the Redux cost in the first place.
 
@@ -47,11 +47,11 @@ Donc on peut légitimement se poser la question de pourquoi on a choisi Redux.
 
 ## One fits all approach
 
-Est-ce qu'il existe mieux ? Objectivement il est difficile de répondre à cette question. En revanche, il est tout à fait possible de répondre à la question "Est-ce qu'il existe mieux pour notre application ?". Et c'est finalement la première question à se poser. Quelle solution de State management sert le mieux nos besoins ? Car même si Redux répond à la plupart des besoins, sommes-nous capables d'absorber le coût de développement induit ? Avons-nous réellement besoin de tout ce que Redux fourni ? Si ce n'est pas le cas, il est intéressant de se pencher sur des solutions plus simples. Personnellement j'ai retenu deux solutions qui sortent du lot : Undux et Akita.
+Est-ce qu'il existe mieux ? Objectivement il est difficile de répondre à cette question. En revanche, il est tout à fait possible de répondre à la question "Est-ce qu'il existe mieux pour notre application ?". Et c'est finalement la première question à se poser. Quelle solution de State management sert le mieux nos besoins ? Car même si Redux répond à la plupart des besoins, sommes-nous capables d'absorber le coût de développement induit ? Avons-nous réellement besoin de tout ce que Redux fournit ? Si ce n'est pas le cas, il est intéressant de se pencher sur des solutions plus simples. Personnellement j'ai retenu deux solutions qui sortent du lot : Undux et Akita.
 
 ## Simplify your State management
 
-Undux se montre comme une alternative simplifiée de Redux et Flux. Les concepts sont conservés mais l'implémentation est plus légère. La partie réactive est assurée par RxJS. Je vous renvoie vers le [Quick Start](https://undux.org/#quick-start) pour avoir des exemples. Les méthodes "get", "set" et "on" remplace les selectors, les reducers et les effects sans avoir de code à écrire.
+Undux se montre comme une alternative simplifiée de Redux et Flux. Les concepts sont conservés mais l'implémentation est plus légère. La partie réactive est assurée par RxJS. Je vous renvoie vers le [Quick Start](https://undux.org/#quick-start) pour avoir des exemples. Les méthodes "get", "set" et "on" remplacent les selectors, les reducers et les effects sans avoir de code à écrire.
 
 Cependant, mon coup de cœur est pour [Akita](https://github.com/salesforce/akita), également construit avec RxJS. Ici, on reprend les recettes qui fonctionnent ailleurs (pattern Flux et Redux, immutabilité, les notions de flux de données/reactive programming, etc) et on construit une solution axée sur l'expérience développeur (concepts issus de la POO, courbe d'apprentissage modérée, boilerplate réduit).
 
@@ -67,7 +67,7 @@ Premièrement, dans la très grande majorité des projets existants, vous n'avez
 
 > The best architectures, requirements, and designs emerge from self-organizing teams.
 
-C'est pour cela que la compréhension du besoin et du contexte de votre projet est primordial. En ayant toutes les cartes en main et la possibilité d'agir\*, vous construirez une solution qui sert au mieux votre produit.
+C'est pour cela que la compréhension du besoin et du contexte de votre projet est primordiale. En ayant toutes les cartes en main et la possibilité d'agir\*, vous construirez une solution qui sert au mieux votre produit.
 
 De votre côté, avez-vous déjà été tenté par d'autres solutions que Redux dans vos projets front ? Avez-vous franchi le pas, même sur des fronts assez conséquents ?
 

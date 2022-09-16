@@ -11,7 +11,7 @@ Avec l'omniprésence de Babel et Typescript dans l'univers Frontend, la compatib
 
 ## Browserslist
 
-[Browserslist](https://github.com/browserslist/browserslist) est une library utilisée par beaucoup de frontend. Il y a de fortes chances que dans vos projets actuels vous ayez un fichier `.browserslistrc` ou une configuration dans votre `package.json`. Que vous en soyez consciemment ou non, Browserslist est présent dans les applications **React** (via create-react-app), **Angular**, **Vue** et plein d'autres (j'ai vérifié que les trois plus connus 😬).
+[Browserslist](https://github.com/browserslist/browserslist) est une library utilisée par beaucoup de frontend. Il y a de fortes chances que dans vos projets actuels vous ayez un fichier `.browserslistrc` ou une configuration dans votre `package.json`. Que vous en soyez conscients ou non, Browserslist est présent dans les applications **React** (via create-react-app), **Angular**, **Vue** et plein d'autres (j'ai vérifié que les trois plus connus 😬).
 
 Je vous donne un rapide exemple de comment fonctionne Browserslist en donnant une configuration et en regardant ensuite quels sont les navigateurs associés à cette configuration :
 
@@ -56,7 +56,7 @@ Vous pouvez également exploiter la puissance de Browserslist pour vos backends 
 
 ## Le plugin PostCSS Autoprefixer
 
-Si vous avez des projets Angular, React ou VueCLI, vous exploitez déjà [Autoprefixer](https://github.com/postcss/autoprefixer). Quoi qu'il en soit, son fonctionnement est très simple : inspecter votre CSS et rajouter les préfixes nécessaires pour certains navigateurs (`-webkit-`, `-moz-`, etc.). Vous l'aurez deviné, Autoprefixer va se baser sur Browserslist (+ Can I Use) pour savoir quand et quel type de préfixe à ajouter.
+Si vous avez des projets Angular, React ou VueCLI, vous exploitez déjà [Autoprefixer](https://github.com/postcss/autoprefixer). Quoi qu'il en soit, son fonctionnement est très simple : inspecter votre CSS et rajouter les préfixes nécessaires pour certains navigateurs (`-webkit-`, `-moz-`, etc.). Vous l'aurez deviné, Autoprefixer va se baser sur Browserslist (+ Can I Use) pour savoir quand et quel type de préfixe ajouter.
 
 Bref, ce plugin [PostCSS](https://github.com/postcss/postcss) vous permet de vous concentrer sur les règles CSS principales en vous déchargeant de la gestion d'une partie de la compatibilité de ces règles. Je vous renvoie vers la documentation pour sa mise en place s'il n'est pas déjà présent.
 
@@ -80,4 +80,4 @@ Enfin, j'attire votre attention sur une approche plus ciblée sur votre produit.
 
 ## Conclusion
 
-En utilisant ces outils, vous pouvez sécuriser votre production de CSS. Stylelint nous permet de voir certaines subtilités dans nos usages. Par exemple, la propriété `gap` combinée avec un affichage `flex` est disponible depuis mi-2020 seulement ! En comparaison, utilisée avec `grid` cette propriété existe depuis mi-2018, et même depuis début 2017 _[NDLR: c'est à dire en même temps que CSS Grid]_ via son ancien nom (`grid-gap`). Il existe pleins d'autres exemples de ce genre et à moins de passer son temps sur MDN vous allez en rater plus d'un dans vos projets. En complément, Autoprefixer se charge des alias, préfixes et autres sophistications requis par nos navigateurs préférés. De quoi s'éviter des bugs tordus et des maux de têtes.
+En utilisant ces outils, vous pouvez sécuriser votre production de CSS. Stylelint nous permet de voir certaines subtilités dans nos usages. Par exemple, la propriété `gap` combinée avec un affichage `flex` est disponible depuis mi-2020 seulement ! En comparaison, utilisée avec `grid` cette propriété existe depuis mi-2018, et même depuis début 2017 _[NDLR: c'est à dire en même temps que CSS Grid]_ via son ancien nom (`grid-gap`). Il existe plein d'autres exemples de ce genre et à moins de passer son temps sur MDN vous allez en rater plus d'un dans vos projets. En complément, Autoprefixer se charge des alias, préfixes et autres sophistications requis par nos navigateurs préférés. De quoi s'éviter des bugs tordus et des maux de têtes.
