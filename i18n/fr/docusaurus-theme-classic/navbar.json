@@ -26,5 +26,9 @@
   "item.label.GitLab": {
     "message": "GitLab",
     "description": "Navbar item with label GitLab"
+  },
+  "item.label.Trivia": {
+    "message": "Anecdotes",
+    "description": "Navbar item with label Trivia"
   }
 }

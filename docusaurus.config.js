@@ -85,21 +85,30 @@ const config = {
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           { to: "/fec", label: "Front-End Chronicles", position: "left" },
-          { to: "/references", label: "References", position: "left" },
-          { to: "/about", label: "About", position: "left" },
+          {
+            type: "dropdown",
+            label: "About",
+            position: "left",
+            items: [
+              { to: "/references", label: "References" },
+              { to: "/trivia", label: "Trivia" },
+            ],
+          },
           {
             type: "localeDropdown",
             position: "right",
           },
           {
             href: "//github.com/brack0",
-            label: "GitHub",
             position: "right",
+            className: "header-link header-github-link",
+            "aria-label": "GitHub repository",
           },
           {
             href: "//gitlab.com/brack0",
-            label: "GitLab",
             position: "right",
+            className: "header-link header-gitlab-link",
+            "aria-label": "Gitlab repository",
           },
         ],
       },
