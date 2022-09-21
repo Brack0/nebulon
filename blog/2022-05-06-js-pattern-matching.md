@@ -315,7 +315,7 @@ export const getCommand: GetCommand = ({ article }) => {
 
 ## S'approcher du pattern matching
 
-L'astuce principale est de mêler les concepts de [literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals) et d'[IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). On va utiliser un objet litéral comme structure de notre pattern matching. Les clés de l'objet correspondent aux différents use-case et les valeurs associées sont les implémentations de ces use-case.
+L'astuce principale est de mêler les concepts de [literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals) et d'[IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). On va utiliser un objet litéral comme structure de notre pattern matching. Les clés de l'objet correspondent aux différents use-case et les valeurs associées sont les implémentations de ces use-case. Point important, on utilise des arrow functions pour éviter d'exécuter tous les scénarios à la création de l'objet.
 
 ```typescript
 const objectLiteral = {
@@ -325,7 +325,7 @@ const objectLiteral = {
 };
 ```
 
-A partir d'un objet litéral comme ci-dessus, l'objectif est de cibler le use-case et d'exécuter la bonne callback. Point important, on utilise des arrow functions pour éviter d'exécuter tous les scénarios à la création de l'objet.
+A partir d'un objet litéral comme ci-dessus, l'objectif est de cibler le use-case et d'exécuter la bonne callback. Je vous donne une illustration très basique.
 
 ```typescript
 const callback = objectLiteral["case1"];
@@ -333,7 +333,7 @@ const callback = objectLiteral["case1"];
 callback(); // Will call fun1()
 ```
 
-A l'étape précédente, nous avons défini une la fonction `getCommand()` dont le rôle est d'identifier le use-case. Ensuite, nous pouvons remplacer les clés de l'objet par des valeurs de `Command`. Et pour finir, on écrit les arrow functions à partir des fonctions existantes. Ce qui donne :
+A l'étape précédente, nous avons défini une fonction `getCommand()` dont le rôle est d'identifier le use-case. Nous avons également défini des identifiants pour nos use-cases (les valeurs de `Command`). Donc, nous pouvons remplacer les `case1`, `case2` et `case3` par des valeurs de `Command`, et les `fun1()`, `fun2()` et `fun3()` par les fonctions extraites plus haut. Ce qui donne :
 
 ```typescript
 const objectLiteral = {
@@ -357,7 +357,7 @@ const callback = objectLiteral[getCommand({ article })];
 callback();
 ```
 
-Enfin si on reprend notre fonction initiale et que l'on retire les variables intermédiaires, on obtient la syntaxe ci-dessous qui représente l'objectif de cet article.
+Enfin si on se remet dans le contexte initial et que l'on retire les variables intermédiaires, on obtient la syntaxe ci-dessous qui représente l'objectif de cet article.
 
 ```typescript title="src/article.ts"
 type ProcessArticle = (dependencies: {
