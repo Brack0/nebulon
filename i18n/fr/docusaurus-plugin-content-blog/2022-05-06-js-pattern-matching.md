@@ -21,8 +21,7 @@ Les extraits de code présentés ci-dessous sont en Typescript et reposent sur l
 
 Commençons par définir une interface qui représente la payload à traiter, dans le cas présent un article. Cet article possède plusieurs attributs qui indique s'il est à supprimer, à publier ou à créer.
 
-```typescript
-// article.ts
+```typescript title="src/article.ts"
 export interface Article {
   delete: boolean;
   publishAction: PublishAction;
@@ -45,8 +44,7 @@ export type PublishAction = typeof PUBLISH_ACTION[keyof typeof PUBLISH_ACTION];
 
 En complément, définissons deux interfaces pour améliorer le typage de notre exemple : un repository et un logger.
 
-```typescript
-// dependencies.ts
+```typescript title="src/dependencies.ts"
 export interface ArticleRepository {
   createOrUpdate: <T>(entity: T) => Promise<T>;
   delete: <T>(entity: T) => Promise<T>;
@@ -66,8 +64,7 @@ export interface Logger {
 
 Je vous propose l'implémentation suivante pour le traitement d'un article comme base de réflexion.
 
-```typescript
-// index.ts
+```typescript title="src/index.ts"
 import { Article, PUBLISH_ACTION } from "./article";
 import { ArticleRepository, Logger } from "./dependencies";
 
@@ -155,7 +152,7 @@ Sans refactoring, on voit que le code va vite devenir difficile à maintenir et 
 
 Afin de traiter certains des problèmes mentionnés précédemment, je vous propose d'utiliser une technique classique : la décomposition en plusieurs fonctions (Clean Code : "Extract till you drop").
 
-```typescript
+```typescript title="src/index.ts"
 import { Article, PUBLISH_ACTION } from "./article";
 import { ArticleRepository, Logger } from "./dependencies";
 
@@ -277,8 +274,7 @@ La première chose que l'on remarque, c'est que la lisibilité est bien meilleur
 
 Dans notre exemple nous avons 5 use-case distincts, donc faisons ressortir explicitement ces 5 scénarios. Pour ce faire, on peut baser sur un simple Enum comme ci-dessous.
 
-```typescript
-// command.ts
+```typescript title="src/command.ts"
 export const COMMAND = {
   delete: 0,
   unpublish: 1,
@@ -292,8 +288,7 @@ export type Command = typeof COMMAND[keyof typeof COMMAND];
 
 Ensuite, nous pouvons implémenter une méthode dont le rôle est d'identifier une intention (nommée `Command` dans notre exemple) à partir des informations contenues dans l'article. Il nous suffit de reprendre l'articulation du code précédent et de renvoyer le bon use-case.
 
-```typescript
-// command.ts
+```typescript title="src/command.ts"
 import { Article, PUBLISH_ACTION } from "./article";
 
 type GetCommand = (parameters: { article: Article }) => Command;
@@ -364,8 +359,7 @@ callback();
 
 Enfin si on reprend notre fonction initiale et que l'on retire les variables intermédiaires, on obtient la syntaxe ci-dessous qui représente l'objectif de cet article.
 
-```typescript
-// article.ts
+```typescript title="src/article.ts"
 type ProcessArticle = (dependencies: {
   articleRepository: ArticleRepository;
   logger: Logger;
