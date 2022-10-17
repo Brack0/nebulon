@@ -33,6 +33,7 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 
 - [Les microservices, c'est pas automatique](https://www.youtube.com/watch?v=_mqn0FfZ2SY) - Arnaud Lemaire
 - [Entre industrialisation et artisanat, le métier de développeur](https://www.youtube.com/watch?v=itGmiTS_IPw) - Arnaud Lemaire
+- [Architecture Hexagonale : gestion complexité logicielle et dette technique](https://www.youtube.com/watch?v=dtP-tTHjckE) - Julien Topçu
 
 ## Livres
 

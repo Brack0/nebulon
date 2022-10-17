@@ -33,6 +33,7 @@ Informal list form my technology intelligence, exchanges in the professional env
 
 - (FR) [Les microservices, c'est pas automatique](https://www.youtube.com/watch?v=_mqn0FfZ2SY) - Arnaud Lemaire
 - (FR) [Entre industrialisation et artisanat, le métier de développeur](https://www.youtube.com/watch?v=itGmiTS_IPw) - Arnaud Lemaire
+- (FR) [Architecture Hexagonale : gestion complexité logicielle et dette technique](https://www.youtube.com/watch?v=dtP-tTHjckE) - Julien Topçu
 
 ## Books
 
