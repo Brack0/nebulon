@@ -2,10 +2,13 @@
 slug: angular-template-performance
 title: "Deep dive Angular : Performance des templates"
 authors: dsouron
-tags: [Angular, Performance, Programming, French]
+image: https://images.unsplash.com/photo-1633441098723-bfaee25878c0
+tags: [Angular, Performance, Programmation, Français]
 ---
 
 La performance est un sujet récurrent quand on parle de frontend. Les principaux acteurs (librairies/frameworks Javascript) y font tous référence dès la page d'accueil. Angular est connu pour intégrer un bundle plus complet mais plus lourd que ses concurrents directs. Même si ces différentes technologies n'embarquent pas les mêmes fonctionnalités, il reste une problématique à résoudre pour tous : le rendu HTML. Nous allons analyser ensemble le fonctionnement d'Angular dans trois cas précis : la gestion des blocs statiques, la mise à jour du DOM et la mise en cache de valeurs.
+
+![Jacquette](./cover.webp)
 
 <!--truncate-->
 

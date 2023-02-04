@@ -19,13 +19,13 @@ Je vous propose une liste des conférences qui m'ont particulièrement plues pen
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/meiA4TPltoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Programming
+## Programmation
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6zQs4B2NIKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PdweuZKD8Sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## General knowledge
+## Culture générale
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j0dCH55-6Ck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
