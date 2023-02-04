@@ -37,7 +37,9 @@ const config = {
         blog: {
           blogDescription:
             "The Rebel Alliance's blog vs. the Microservice Empire",
-          showReadingTime: true,
+          postsPerPage: 5,
+          blogSidebarCount: "ALL",
+          blogSidebarTitle: "All posts",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

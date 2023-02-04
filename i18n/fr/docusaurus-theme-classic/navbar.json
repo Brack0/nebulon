@@ -19,14 +19,6 @@
     "message": "A propos",
     "description": "Navbar item with label About"
   },
-  "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
-  },
-  "item.label.GitLab": {
-    "message": "GitLab",
-    "description": "Navbar item with label GitLab"
-  },
   "item.label.Trivia": {
     "message": "Anecdotes",
     "description": "Navbar item with label Trivia"
