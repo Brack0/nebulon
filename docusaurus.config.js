@@ -35,11 +35,21 @@ const config = {
       ({
         docs: false,
         blog: {
+          archiveBasePath: null, // Archive disabled
           blogDescription:
             "The Rebel Alliance's blog vs. the Microservice Empire",
           postsPerPage: 5,
           blogSidebarCount: "ALL",
           blogSidebarTitle: "All posts",
+        },
+        sitemap: {
+          ignorePatterns: [
+            "/search",
+            "/blog/tags/**",
+            "/blog/rss.xml",
+            "/fec/tags/**",
+            "/fec/rss.xml",
+          ],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -52,6 +62,7 @@ const config = {
       "@docusaurus/plugin-content-blog",
       {
         id: "fec",
+        archiveBasePath: null, // Archive disabled
         blogDescription:
           "Find all the episodes of Front-end chronicles podcast",
         blogSidebarCount: "ALL",
