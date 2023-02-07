@@ -49,6 +49,11 @@ const config = {
             "/blog/rss.xml",
             "/fec/tags/**",
             "/fec/rss.xml",
+            "/fr/search",
+            "/fr/blog/tags/**",
+            "/fr/blog/rss.xml",
+            "/fr/fec/tags/**",
+            "/fr/fec/rss.xml",
           ],
         },
         theme: {
