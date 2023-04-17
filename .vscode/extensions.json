@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "pkief.material-icon-theme",
+    "ms-vscode.remote-server",
+    "ms-vscode.remote-explorer",
+    "johnpapa.winteriscoming",
+    "esbenp.prettier-vscode",
+    "unifiedjs.vscode-mdx",
+    "mhutchie.git-graph"
+  ]
+}
