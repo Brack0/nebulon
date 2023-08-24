@@ -28,18 +28,29 @@ Liste informelle issue de ma veille technologique, d'échanges dans le milieu pr
 - [Focus refactoring on what matters with Hotspots Analysis](https://understandlegacycode.com/blog/focus-refactoring-with-hotspots-analysis/)
 - [How to make small steps go a long way](https://how-to.dev/how-to-make-small-steps-go-a-long-way)
 - [Clean Architecture on Frontend](https://bespoyasov.me/blog/clean-architecture-on-frontend/)
+- [In the long run](https://blog.ploeh.dk/2023/01/16/in-the-long-run/)
+
+## Vidéos
+
+- [Dependency Injection, The Best Pattern](https://www.youtube.com/watch?v=J1f5b4vcxCQ) - CodeAesthetic
 
 ## Conférences
 
 - [Les microservices, c'est pas automatique](https://www.youtube.com/watch?v=_mqn0FfZ2SY) - Arnaud Lemaire
 - [Entre industrialisation et artisanat, le métier de développeur](https://www.youtube.com/watch?v=itGmiTS_IPw) - Arnaud Lemaire
 - [Architecture Hexagonale : gestion complexité logicielle et dette technique](https://www.youtube.com/watch?v=dtP-tTHjckE) - Julien Topçu
+- [Clean Coders Hate What Happens to Your Code When You Use These Enterprise Programming Tricks](https://www.youtube.com/watch?v=FyCYva9DhsI) - Kevlin Henney
+- [Architecturoplastie hexagonale d’un backend: Opération à code ouvert](https://www.youtube.com/watch?v=r_x_sEDCV1Y) - Julien Topçu, Adrien Joly
 
 ## Livres
 
 - Refactoring - Martin Fowler
 - Clean code - Robert C. Martin
 - Extreme Programming Explained: Embrace Change - Kent Beck & Cynthia Andres
+
+## Blogs
+
+- [Anthony Pena](https://k49.fr.nf/)
 
 ## Terrains de jeu
 
