@@ -1,19 +1,19 @@
 ---
 slug: css-compatibility
-title: "Comment gérer sa compatibilité CSS ?"
+title: "Managing CSS Compatibility"
 authors: dsouron
 tags: [CSS, Tutorial, Programming, French]
 ---
 
-Avec l'omniprésence de Babel et Typescript dans l'univers Frontend, la compatibilité Javascript de nos applications n'est (presque) plus un sujet. Pour le HTML, seulement quelques attributs sont ajoutés depuis le HTML5 pour des fonctionnalités _bonus_ (lazyload, prefetch, etc.). Ils sont en général ignorés par les navigateurs incompatibles. Et pour le CSS ? Pas de polyfills à proprement parler, un support très hétérogène et la moindre esquive d'un `display:grid` est désastreux pour le visuel. Alors comment fait-on pour rationaliser notre CSS ? Voyons ça ensemble.
+With the omnipresence of Babel and TypeScript in the Frontend universe, the JavaScript compatibility of our applications is (almost) no longer an issue. For HTML, only a few attributes have been added since HTML5 for bonus features (lazyload, prefetch, etc.). They are generally ignored by incompatible browsers. And for CSS? There are no proper polyfills, very heterogeneous support, and even a slight misstep with `display: grid` can be disastrous for the visuals. So, how do we rationalize our CSS? Let's explore that together.
 
 <!--truncate-->
 
 ## Browserslist
 
-[Browserslist](https://github.com/browserslist/browserslist) est une library utilisée par beaucoup de frontend. Il y a de fortes chances que dans vos projets actuels vous ayez un fichier `.browserslistrc` ou une configuration dans votre `package.json`. Que vous en soyez conscients ou non, Browserslist est présent dans les applications **React** (via create-react-app), **Angular**, **Vue** et plein d'autres (j'ai vérifié que les trois plus connus 😬).
+[Browserslist](https://github.com/browserslist/browserslist) is a library used by many frontend developers. There's a good chance that in your current projects, you have a `.browserslistrc` file or a configuration in your `package.json`. Whether you are aware of it or not, Browserslist is present in **React** applications (via create-react-app), **Angular**, **Vue**, and many others (I've verified only the three most well-known 😬).
 
-Je vous donne un rapide exemple de comment fonctionne Browserslist en donnant une configuration et en regardant ensuite quels sont les navigateurs associés à cette configuration :
+Here's a quick example of how Browserslist works by providing a configuration and then checking which browsers are associated with that configuration:
 
 ```json title="package.json"
 {
@@ -46,38 +46,38 @@ safari 15.6
 samsung 17.0
 ```
 
-Dans notre cas, Browserslist (avec l'aide de [Can I Use](https://caniuse.com/)) va nous aider à configurer les deux prochains outils que je présente ci-dessous. En effet, nous allons l'utiliser en tant que référentiel des navigateurs à supporter. L'avantage est que Babel et [ESLint](https://github.com/amilajack/eslint-plugin-compat) utilise également ce référentiel pour le support Javascript.
+In our case, Browserslist (with the help of [Can I Use](https://caniuse.com/)) will help us configure the two tools I present below. Indeed, we will use it as a reference for the browsers to support. The advantage is that Babel and [ESLint](https://github.com/amilajack/eslint-plugin-compat) also use this repository for JavaScript support.
 
 :::tip
 
-Vous pouvez également exploiter la puissance de Browserslist pour vos backends NodeJS. Plus d'infos sur le dépôt de [Browserslist](https://github.com/browserslist/browserslist).
+You can also harness the power of Browserslist for your Node.js backends. More information can be found on the [Browserslist repository](https://github.com/browserslist/browserslist).
 
 :::
 
-## Le plugin PostCSS Autoprefixer
+## PostCSS Autoprefixer Plugin
 
-Si vous avez des projets Angular, React ou VueCLI, vous exploitez déjà [Autoprefixer](https://github.com/postcss/autoprefixer). Quoi qu'il en soit, son fonctionnement est très simple : inspecter votre CSS et rajouter les préfixes nécessaires pour certains navigateurs (`-webkit-`, `-moz-`, etc.). Vous l'aurez deviné, Autoprefixer va se baser sur Browserslist (+ Can I Use) pour savoir quand et quel type de préfixe ajouter.
+If you have Angular, React, or VueCLI projects, you are already using [Autoprefixer](https://github.com/postcss/autoprefixer). Regardless, its operation is very simple: inspect your CSS and add the necessary prefixes for certain browsers (`-webkit-`, `-moz-`, etc.). As you may have guessed, Autoprefixer relies on Browserslist (+ Can I Use) to determine when and what type of prefix to add.
 
-Bref, ce plugin [PostCSS](https://github.com/postcss/postcss) vous permet de vous concentrer sur les règles CSS principales en vous déchargeant de la gestion d'une partie de la compatibilité de ces règles. Je vous renvoie vers la documentation pour sa mise en place s'il n'est pas déjà présent.
+In short, this [PostCSS](https://github.com/postcss/postcss) plugin allows you to focus on the main CSS rules while offloading some of the compatibility management. I refer you to the documentation for its setup if it's not already present.
 
-## Stylelint en tant que garde-fou
+## Stylelint as a Safeguard
 
-[Stylelint](https://stylelint.io/) est un linter de code CSS/SASS/Less/etc. A l'instar d'ESLint pour le Javascript, Stylelint va mettre en évidence, en fonction de règles configurables, des anomalies dans vos feuilles de styles. L'objectif est simple, éviter les erreurs et définir des conventions pour les développeurs.
+[Stylelint](https://stylelint.io/) is a linter for CSS/SASS/Less/etc. similar to ESLint for JavaScript. Stylelint highlights anomalies in your stylesheets based on configurable rules, with the goal of preventing errors and establishing conventions for developers.
 
-En complément des best practices, vous pouvez également faire ressortir les règles non supportées par votre cible (les navigateurs à supporter). Tout comme Autoprefixer, on va se reposer sur Browserslist (+ Can I Use) pour faire le lien entre votre cible et les règles CSS utilisées. C'est exactement ce que fait le plugin Stylelint [no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features) que je vous invite à essayer. N'oubliez pas vos IDE pour réduire la boucle de feedback.
+In addition to best practices, you can also identify rules that are not supported by your target browsers. Just like Autoprefixer, we rely on Browserslist (+ Can I Use) to bridge the gap between your target browsers and the CSS rules used. This is exactly what the Stylelint plugin [no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features) does, and I encourage you to try it out. Don't forget about your IDEs to reduce the feedback loop.
 
 :::tip
 
-Quand vous combinez Stylelint et Autoprefixer (ce que je vous recommande chaudement), pensez à activer les règles de type `xxx-no-vendor-prefix` car Autoprefixer se charge du support à votre place. Nul besoin de polluer vos fichiers de styles.
+When you combine Stylelint and Autoprefixer (which I highly recommend), consider enabling rules of the type `xxx-no-vendor-prefix` because Autoprefixer handles support for you. No need to clutter your style files.
 
 :::
 
 ## Tweaking
 
-Une fois tous ces éléments en place, vous pouvez ajuster la liste des navigateurs à supporter en fonction de vos besoins. Les réglages par défaut de Browserslist conviennent pour la majorité des projets n'ayant pas de besoins spécifiques (`> 0.5%, last 2 versions, Firefox ESR, not dead`). Si cela n'est pas suffisant, à vous de définir un ensemble de règles plus ou moins contraignantes qui correspond à votre audience.
+Once all these elements are in place, you can adjust the list of supported browsers according to your needs. Browserslist's default settings are suitable for the majority of projects with no specific requirements (`> 0.5%, last 2 versions, Firefox ESR, not dead`). If that's not sufficient, you can define a set of rules that are more or less restrictive and tailored to your audience.
 
-Enfin, j'attire votre attention sur une approche plus ciblée sur votre produit. Via des petits utilitaires ([Browserslist-GA](https://github.com/browserslist/browserslist-ga) et [browserslist-new-relic](https://github.com/syntactic-salt/browserslist-new-relic)), vous pouvez recueillir **vos** statistiques et les exploiter dans Browserslist (à l'aide des règles `> Y% in my stats`). Cela peut avoir du sens quand les statistiques publiques ne sont pas pertinentes, comme sur des marchés très ciblés (exemple : la Chine) ou des plateformes privées.
+Finally, I draw your attention to a more targeted approach for your product. Through small utilities ([Browserslist-GA](https://github.com/browserslist/browserslist-ga) and [browserslist-new-relic](https://github.com/syntactic-salt/browserslist-new-relic)), you can gather **your** statistics and use them in Browserslist (with rules like `> Y% in my stats`). This can make sense when public statistics are not relevant, such as in very specific markets (e.g., China) or private platforms.
 
 ## Conclusion
 
-En utilisant ces outils, vous pouvez sécuriser votre production de CSS. Stylelint nous permet de voir certaines subtilités dans nos usages. Par exemple, la propriété `gap` combinée avec un affichage `flex` est disponible depuis mi-2020 seulement ! En comparaison, utilisée avec `grid` cette propriété existe depuis mi-2018, et même depuis début 2017 _[NDLR: c'est à dire en même temps que CSS Grid]_ via son ancien nom (`grid-gap`). Il existe plein d'autres exemples de ce genre et à moins de passer son temps sur MDN vous allez en rater plus d'un dans vos projets. En complément, Autoprefixer se charge des alias, préfixes et autres sophistications requis par nos navigateurs préférés. De quoi s'éviter des bugs tordus et des maux de têtes.
+By using these tools, you can secure your CSS production. Stylelint allows us to spot subtleties in our practices. For example, the `gap` property combined with a `flex` display has only been available since mid-2020! In comparison, when used with `grid`, this property has been available since mid-2018, and even since early 2017 _[Editor's Note: that is, at the same time as CSS Grid]_ under its old name (`grid-gap`). There are many other examples like this, and unless you spend all your time on MDN, you'll miss more than one in your projects. In addition, Autoprefixer takes care of aliases, prefixes, and other refinements required by our favorite browsers. This helps us avoid tricky bugs and headaches.
