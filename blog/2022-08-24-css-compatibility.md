@@ -2,10 +2,10 @@
 slug: css-compatibility
 title: "Managing CSS Compatibility"
 authors: dsouron
-tags: [CSS, Tutorial, Programming, French]
+tags: [CSS, Tutorial, Programming, English]
 ---
 
-With the omnipresence of Babel and TypeScript in the Frontend universe, the JavaScript compatibility of our applications is (almost) no longer an issue. For HTML, only a few attributes have been added since HTML5 for bonus features (lazyload, prefetch, etc.). They are generally ignored by incompatible browsers. And for CSS? There are no proper polyfills, very heterogeneous support, and even a slight misstep with `display: grid` can be disastrous for the visuals. So, how do we rationalize our CSS? Let's explore that together.
+With the omnipresence of Babel and TypeScript in the Frontend universe, the JavaScript compatibility of our applications is (almost) no longer an issue. For HTML, only a few attributes have been added since HTML5 for bonus features (lazyload, prefetch, etc.). They are generally ignored by incompatible browsers. What about CSS? There are no proper polyfills, very heterogeneous support, and even a slight misstep with `display: grid` can be disastrous for the visuals. So, how do we rationalize our CSS? Let's explore that together.
 
 <!--truncate-->
 
