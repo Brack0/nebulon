@@ -1,17 +1,17 @@
 ---
 slug: js-optional-chaining
-title: "Optional chaining : meilleur ami ou pire ennemi ?"
+title: "Optional Chaining: Best Friend or Worst Enemy?"
 authors: dsouron
-tags: [Javascript, Opinion, Programming, French]
+tags: [Javascript, Opinion, Programming, English]
 ---
 
-Intégré à ES2020, présent depuis 2018 dans Babel et depuis la version 3.7 de Typescript, l'optional chaining est un opérateur largement utilisé aujourd'hui. Même si l'intérêt d'un tel opérateur est indéniable, regardons ensemble les biais et les mauvaises pratiques qui peuvent émerger de son usage.
+Integrated into ES2020, present since 2018 in Babel, and since version 3.7 of TypeScript, optional chaining is an operator widely used today. Although the usefulness of such an operator is undeniable, let's explore together the biases and bad practices that can emerge from its usage.
 
 <!--truncate-->
 
-## Rappels sur l'opérateur de chaînage optionnel
+## A reminder about the optional chaining operator
 
-L'opérateur de chaînage optionnel (`?.`) est un opérateur qui permet d'accéder aux propriétés en chaine alors que l'existence de ces propriétés n'est pas garantie. Il s'applique uniquement sur la propriété où il est apposé (opérande à gauche du symbole `?.`). Ainsi, on peut être amené à l'utiliser plusieurs fois dans une chaine de propriétés pour sécuriser l'accès à une valeur. Sous forme de code, on pourrait traduire `a?.b` par `(a === null || a === undefined) ? undefined : a.b`.
+The optional chaining operator (`?.`) is an operator that allows accessing properties in a chain when the existence of these properties is not guaranteed. It only applies to the property where it is placed (the operand to the left of the `?.` symbol). Thus, you may need to use it multiple times in a property chain to secure access to a value. In code form, `a?.b` could be translated as `(a === null || a === undefined) ? undefined : a.b`.
 
 ```ts
 const foo = {
@@ -33,7 +33,7 @@ foo.x.y?.z; // undefined
 foo.x?.y.z; // TypeError (optional chaining on 'x' won't prevent error on 'y')
 ```
 
-Cet opérateur est utilisable pour les objets, les tableaux et les fonctions. Et pour la petite histoire, l'usage systématique du point dans la syntaxe, même dans le cas des tableaux et des fonctions, est lié à une problématique du parser Javascript, qui pourrait confondre l'optional chaining avec un ternaire (exemple avec l'expression `obj?[expr].filter(fun):0`).
+This operator can be used for objects, arrays, and functions. And for the record, the systematic use of the dot in the syntax, even in the case of arrays and functions, is related to a problem with the JavaScript parser, which could confuse optional chaining with a ternary (example with the expression `obj?[expr].filter(fun):0`).
 
 ```ts
 obj?.prop;
@@ -42,32 +42,32 @@ arr?.[index];
 func?.(args);
 ```
 
-## L'abus de chaînage optionnel peut nuire à la santé de vos applications
+## Excessive optional chaining can harm your application's health
 
-Lorsque l'on utilise l'optional chaining, c'est pour gérer les propriétés optionnelles. L'usage des bons mots est important car on parle bien ici des propriétés dont leur absence a du sens dans l'application. Le fait que la propriété ne soit pas définie est non seulement un cas possible, mais également un cas prévu et qui a du sens ! Enoncé comme tel, on a l'impression d'enfoncer des portes ouvertes. Pourtant dans le code de nombreuses applications, les propriétés optionnelles ne correspondent pas à cette définition et traduisent une incertitude sur la donnée.
+When using optional chaining, it's to manage optional properties. The use of the right words is essential because we are talking about properties whose absence makes sense in the application. The fact that the property is not defined is not only a possible case but also a planned case that makes sense! Stated as such, it may seem like stating the obvious. However, in the code of many applications, optional properties do not fit this definition and reflect uncertainty about the data.
 
-Si l'on part de ce constat, l'optional chaining représente avant tout la solution de facilité. En effet, on décide de ne pas résoudre l'incertitude en traitant l'information si elle existe et en ignorant le traitement si l'information est absente. Autant rajouter des `if` toutes les trois lignes nous paraît insensé, autant le recours à l'optional chaining (qui pourtant a le même rôle) est une solution étrangement plus acceptable dans notre code. Sachant que l'incertitude et l'imprédictibilité au sein du logiciel sont des métriques qui caractérisent un code legacy, on essaie autant que possible de limiter leur ampleur.
+Starting from this observation, optional chaining primarily represents the path of least resistance. Indeed, we decide not to resolve uncertainty by processing the information if it exists and ignoring the processing if the information is absent. As much as adding `if` statements every three lines seems absurd, the use of optional chaining (which has the same role) is strangely more acceptable in our code. Knowing that uncertainty and unpredictability within software are metrics that characterize legacy code, we try to limit their scope as much as possible.
 
-Mais arrêtons de taper sur les devs qui utilisent l'optional chaining et soyons plus constructif : que pouvons-nous faire pour éviter de transformer notre code en expérience de Schrödinger ?
+But let's stop criticizing developers who use optional chaining and be more constructive: what can we do to avoid turning our code into a Schrödinger's experiment?
 
-## Quelles alternatives ?
+## What are the alternatives?
 
 ### Fail fast
 
-Il arrive que l'optional chaining soit utilisé pour du code défensif. Cela permet d'augmenter la résilience du code vis-à-vis de la donnée. Cependant le code défensif n'a pas forcément sa place quand on veut fiabiliser les données. Un des meilleurs moyens d'endiguer les données erronées et/ou incomplètes est le "fail fast". En refusant au plus vite les données invalides, on garantit que le reste de l'application manipulera des données fiables et produira donc moins de bugs.
+Sometimes optional chaining is used for defensive coding. This increases code resilience in the face of data. However, defensive coding does not necessarily have a place when you want to make data reliable. One of the best ways to contain erroneous and/or incomplete data is "fail fast." By rejecting invalid data as quickly as possible, we ensure that the rest of the application will handle reliable data and produce fewer bugs.
 
-### Typescript à la rescousse
+### TypeScript to the rescue
 
-Le pire scénario qui puisse vous arrivez est le typage "pauvre" (aka un typage pas assez précis pour représenter de la donnée). Dans ce cas, je vous renvoie vers mon article sur les [discriminated union en Typescript](./ts-discriminated-union). L'article montre comment mieux typer et éviter les propriétés optionnelles en remplaçant une interface "à tout faire" par une union d'interfaces plus précises. A titre d'exemple, vous pouvez facilement garantir que l'utilisateur courant a un `username` si vous savez que cet utilisateur est connecté et qu'il n'est pas un visiteur.
+The worst-case scenario you can encounter is "poor" typing (i.e., not precise enough to represent data). In this case, I refer you to my article on [discriminated unions in TypeScript](./ts-discriminated-union). The article explains how to better type and avoid optional properties by replacing a "one-size-fits-all" interface with a union of more precise interfaces. For example, you can easily ensure that the current user has a `username` if you know that this user is logged in and not a visitor.
 
-### Limiter le périmètre d'incertitude
+### Limit the scope of uncertainty
 
-Parmi les moyens efficaces pour combattre l'incertitude, vous pouvez également réduire l'espace concerné par cette incertitude. Il est nettement plus acceptable et gérable dans le temps de cantonner l'incertitude à quelques fonctions, voire quelques classes. Si vous exposez une interface avec des propriétés optionnelles, essayez de converger rapidement vers un typage plus strict et précis.
+Among the effective ways to combat uncertainty, you can also reduce the space affected by this uncertainty. It is much more acceptable and manageable over time to confine uncertainty to a few functions or even a few classes. If you expose an interface with optional properties, try to quickly converge toward a stricter and more precise typing.
 
-Typiquement pour la configuration d'une librairie (interface publique avec des propriétés optionnelles), vous pouvez soit :
+Typically, for configuring a library (public interface with optional properties), you can either:
 
-- Remplacer les propriétés optionnelles par des propriétés obligatoires avec des valeurs par défaut.
-- Définir une interface privée, sans propriétés optionnelles, qui sera utilisée dans code interne de la librairie à la place de l'interface publique.
+- Replace optional properties with mandatory properties with default values.
+- Define a private interface without optional properties, which will be used internally in the library code instead of the public interface.
 
 ```ts
 export interface PublicLibConfig {
@@ -87,7 +87,7 @@ interface PrivateLibConfig {
 
 :::tip ProTip
 
-Pensez à combiner l'optional chaining avec le nullish coalescing operator pour éviter les initialisations à undefined.
+Consider combining optional chaining with the nullish coalescing operator to avoid initializations to `undefined`.
 
 ```ts
 // will never be undefined
@@ -98,8 +98,8 @@ const animation = animationStyle?.toUpperCase() ?? "EASE-IN";
 
 ## Conclusion
 
-Dans certains cas, l'usage de l'optional chaining masque un problème plus profond sur les données manipulées. Gardez votre esprit critique et prenez du recul face à cet opérateur. Est-ce pertinent de l'utiliser (comme la configuration d'une librairie qui propose beaucoup d'options, ex : [configuration Vite](https://github.com/vitejs/vite/blob/c78e4099e502876a2ab23fd8163455d8172ff5b7/packages/vite/src/node/config.ts#L103)) ou est-ce une solution palliative d'un autre problème (imprécision dans le typage, incertitude sur les données présentes, absence de valeurs par défaut) ?
+In some cases, the use of optional chaining hides a deeper problem with the manipulated data. Keep your critical thinking and take a step back from this operator. Is it relevant to use it (such as configuring a library that offers many options, e.g., [Vite configuration](https://github.com/vitejs/vite/blob/c78e4099e502876a2ab23fd8163455d8172ff5b7/packages/vite/src/node/config.ts#L103)), or is it a palliative solution to another problem (imprecise typing, uncertainty about the available data, lack of default values)?
 
-Pour prolonger la réflexion sur la pertinence d'un bon typage, je vous invite à lire cet article : [Making Invalid State Unrepresentable](https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html).
+To further reflect on the relevance of good typing, I invite you to read this article: [Making Invalid State Unrepresentable](https://hugotunius.se/2020/05/16/making-invalid-state-unrepresentable.html).
 
-Pour creuser les aspects "fail fast" et "périmètre de l'incertitude", je vous recommande la méthode [impure/pure/impure sandwitch](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/).
+To delve into "fail fast" and the scope of uncertainty, I recommend the [impure/pure/impure sandwich method](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/).
