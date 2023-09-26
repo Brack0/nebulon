@@ -2,77 +2,79 @@
 slug: state-management-goodbye-redux
 title: "Goodbye Redux"
 authors: dsouron
-tags: [State Management, Opinion, Programming, French]
+tags: [State Management, Opinion, Programming, English]
 ---
 
-Parlons de State Management au niveau d'une application. Les états locaux (React Hook, Vue Composable, Service Angular + RxJS Subject) ont un usage limité par définition. Avec l'ampleur de l'écosystème React sur le monde professionnel, Redux est devenu la réponse évidente à la problématique du State Management. Etudions ensemble le processus assez naturel qui nous amène à Redux et prenons du recul sur nos choix.
+# Goodbye Redux
+
+Let's talk about application-level state management. Local states (React Hook, Vue Composable, Angular Service + RxJS Subject) have limited use by definition. With the extent of the React ecosystem in the professional world, Redux has become the obvious answer to the State Management challenge. Let's explore the fairly natural process that leads us to Redux and take a step back to reconsider our choices.
 
 <!--truncate-->
 
-Disclaimer : Si vous vouliez avoir un plaidoyer sur GraphQL, c'est raté. Rassurez-vous, il existe plein d'autres articles qui en parle. Ici, nous allons nous concentrer sur la notion de State Management et pas sur les impacts que pourrait avoir une API comme GraphQL sur votre architecture et votre State Management.
+Disclaimer: If you were hoping for a plea for GraphQL, you're out of luck. Don't worry; there are plenty of other articles that discuss it. Here, we will focus on the concept of State Management, not on the impacts that an API like GraphQL could have on your architecture and State Management.
 
 ## Getting started
 
-Commençons en prenant un projet de build frontend. Ce projet peut utiliser les technologies que vous préférez (Vue, React, Angular, Svelte, etc). Pour la suite de l'article, nous nous baserons sur Angular.
+Let's start with a frontend build project. This project can use the technologies of your choice (Vue, React, Angular, Svelte, etc.). For the rest of the article, we'll base our discussion on Angular.
 
-Alors pourquoi Angular est un bon candidat me direz-vous ? Simplement parce que pleins de projet Angular démarrent et parfois restent sans solution de State Management. La combinaison de RxJS et des services en singleton permettent de résoudre la majorité des besoins (SSOT : Single Source Of Truth, données "réactives", dissociation lecture/modification des données). Donc le State Management arrive plus tard et pas toujours de la bonne façon, alors qu'il devient critique. Pour les autres frontends, la problématique reste identique, même si certains utilisent des gestions d'états locaux tel que React Hook et Vue composable.
+So why is Angular a good candidate, you may ask? Simply because many Angular projects start and sometimes remain without a State Management solution. The combination of RxJS and singleton services can solve most needs (SSOT: Single Source Of Truth, "reactive" data, separation of data reading and modification). Therefore, State Management comes later and not always in the right way, even though it becomes critical. For other frontends, the problem remains the same, even if some use local state management solutions such as React Hook and Vue Composable.
 
-Mais reprenons notre projet de build. La question du State Management arrive sur la table. En effet, l'application grossit et la gestion des données devient chaotique. Les données partagées sont modifiées à plusieurs endroits. Certains états sont dupliqués et des problèmes de synchronisation apparaissent. Finalement les outils fournis par le Framework ne suffisent plus pour traiter toutes les problématiques d'état au sein de l'application. Heureusement notre sauveur est là : le pattern Redux.
+But let's return to our build project. The issue of State Management comes up. Indeed, the application is growing, and data management is becoming chaotic. Shared data is modified in multiple places. Some states are duplicated, and synchronization problems arise. Ultimately, the tools provided by the framework are no longer sufficient to handle all state-related issues within the application. Fortunately, our savior is here: the Redux pattern.
 
 ## Implementation
 
-Etant sur un projet Angular, on se tourne assez naturellement vers NgRx qui semble répondre à nos attentes. En effet NgRx se présente lui-même comme solution à cette problématique :
+Being on an Angular project, we naturally turn to NgRx, which seems to meet our expectations. Indeed, NgRx presents itself as a solution to this problem:
 
 > You might use NgRx when you build an application with a lot of user interactions and multiple data sources, or when managing state in services are no longer sufficient.
 
-On s'engage donc dans la mise en place du pattern Redux, ce qui provoque l'ajout de beaucoup d'éléments (store, state, actions, selectors, reducers, parfois combineReducers, etc.). Même en utilisant des constructeurs d'action et des générateurs de reducer, on se retrouve rapidement avec une structure conséquente (boilerplate). Un coût qui semble être accepté, voire acceptable pour certains. Pourtant, vous avez aussi quelques développeurs juniors sur le projet et vous ne voulez pas leur infliger la fameuse JS Fatigue\* dont vous avez peut-être souffert.
+So we embark on implementing the Redux pattern, which involves adding many elements (store, state, actions, selectors, reducers, sometimes combineReducers, etc.). Even when using action creators and reducer generators, we quickly end up with a substantial structure (boilerplate). A cost that seems to be accepted, or even acceptable, for some. However, you also have some junior developers on the project, and you don't want to subject them to the famous JS Fatigue\* that you may have experienced.
 
 :::info JS Fatigue
 
-Beaucoup de développeurs se sentent dépassés par l'évolution rapide et perpétuelle de l'écosystème Javascript moderne et ressentent le besoin d'apprendre la plupart des technologies émergentes pour effectuer leur travail correctement. Ce phénomène est entre-autre causé par la crainte de ne plus être dans le coup ou de choisir des solutions obsolètes et/ou non-optimales.
+Many developers feel overwhelmed by the rapid and perpetual evolution of the modern JavaScript ecosystem and feel the need to learn most emerging technologies to do their job properly. This phenomenon is, among other things, caused by the fear of not keeping up or choosing outdated and/or suboptimal solutions.
 
 :::
 
 ## Next step
 
-Pour simplifier les usages au sein de l'application, vous vous lancez alors dans la mise en place de façades. Et c'est naturel, ce patron de conception est là pour traiter ces symptômes, en fournissant une interface simple qui permet de masquer la complexité d'un système/module. Cela nous permet de regrouper en une seule façade toute la gestion d'un concept métier (la session utilisateur par exemple). En plus de simplifier les usages, on apporte également plus de sens à l'application en se focalisant sur les concepts métiers plutôt que sur les éléments techniques sur lesquels ils reposent. Que du positif en somme, non ?
+To simplify usage within the application, you then proceed to implement facades. And it's natural; this design pattern is there to address these symptoms by providing a simple interface that hides the complexity of a system/module. This allows us to group all the management of a business concept (such as user session) into a single facade. In addition to simplifying usage, it also brings more meaning to the application by focusing on business concepts rather than the technical elements they rely on. All positives, right?
 
-## What's wrong ?
+## What's wrong?
 
-Alors qu'est-ce qui ne va pas dans notre solution ? La réponse est finalement assez simple quand on prend du recul sur le scénario exposé, la solution est disproportionnée par rapport aux usages qui en sont faits. La puissance de Redux est apportée par un découplage extrême entre les éléments. Sans pour autant être problématique, ajouter des façades réintroduit un peu de couplage. En conclusion, la solution est lourde à implémenter (pattern Redux), mais sans en tirer tous les avantages (couplage apporté par les façades). Une situation qui est résumée par Mike Ryan (co-fondateur de NgRx) dans un tweet :
+So what's wrong with our solution? The answer is actually quite simple when we step back from the scenario presented: the solution is disproportionate to the use cases. The power of Redux comes from extreme decoupling between elements. Adding facades, while not problematic per se, reintroduces some coupling. In conclusion, the solution is heavy to implement (the Redux pattern) but doesn't fully leverage its advantages (coupling introduced by facades). This situation is summarized by Mike Ryan (co-founder of NgRx) in a tweet:
 
 > The Redux pattern has a high code cost to achieve indirection. Turning around and removing the indirection with facades makes me wonder why you are paying the Redux cost in the first place.
 
-Donc on peut légitimement se poser la question de pourquoi on a choisi Redux.
+So, we can legitimately ask ourselves why we chose Redux.
 
 ## One fits all approach
 
-Est-ce qu'il existe mieux ? Objectivement il est difficile de répondre à cette question. En revanche, il est tout à fait possible de répondre à la question "Est-ce qu'il existe mieux pour notre application ?". Et c'est finalement la première question à se poser. Quelle solution de State management sert le mieux nos besoins ? Car même si Redux répond à la plupart des besoins, sommes-nous capables d'absorber le coût de développement induit ? Avons-nous réellement besoin de tout ce que Redux fournit ? Si ce n'est pas le cas, il est intéressant de se pencher sur des solutions plus simples. Personnellement j'ai retenu deux solutions qui sortent du lot : Undux et Akita.
+Is there something better? Objectively, it's difficult to answer that question. However, it's entirely possible to answer the question, "Is there something better for our application?" And ultimately, that's the first question to ask. Which state management solution best serves our needs? Because even though Redux addresses most needs, can we absorb the development cost it incurs? Do we really need everything Redux provides? If not, it's worth looking into simpler solutions. Personally, I've identified two solutions that stand out: Undux and Akita.
 
 ## Simplify your State management
 
-Undux se montre comme une alternative simplifiée de Redux et Flux. Les concepts sont conservés mais l'implémentation est plus légère. La partie réactive est assurée par RxJS. Je vous renvoie vers le [Quick Start](https://undux.org/#quick-start) pour avoir des exemples. Les méthodes "get", "set" et "on" remplacent les selectors, les reducers et les effects sans avoir de code à écrire.
+Undux presents itself as a simplified alternative to Redux and Flux. The concepts are retained, but the implementation is lighter. Reactivity is handled by RxJS. I refer you to the [Quick Start](https://undux.org/#quick-start) for examples. The "get," "set," and "on" methods replace selectors, reducers, and effects without having to write code.
 
-Cependant, mon coup de cœur est pour [Akita](https://github.com/salesforce/akita), également construit avec RxJS. Ici, on reprend les recettes qui fonctionnent ailleurs (pattern Flux et Redux, immutabilité, les notions de flux de données/reactive programming, etc) et on construit une solution axée sur l'expérience développeur (concepts issus de la POO, courbe d'apprentissage modérée, boilerplate réduit).
+However, my favorite is [Akita](https://github.com/salesforce/akita), also built with RxJS. Here, we take the recipes that work elsewhere (Flux and Redux patterns, immutability, reactive programming concepts, etc.) and build a developer-focused solution (concepts from OOP, moderate learning curve, reduced boilerplate).
 
-La simplification, c'est aussi le choix de Vue, précédemment avec VueX et maintenant avec Pinia. Même si Vue laisse la porte ouverte à Redux, cela fait plusieurs années qu'un State Management plus simple est proposé, voire recommandé dans la documentation.
+Simplification also includes the choice of Vue, previously with VueX and now with Pinia. Even though Vue leaves the door open to Redux, a simpler State Management solution has been offered and even recommended in the documentation for several years.
 
 ## Choices have been made
 
-En tant que développeurs, nous devons faire des choix efficaces et c'est ce que nous faisons souvent finalement. Mais ces choix sont-ils efficients ? D'un autre côté, une solution qui répond parfaitement aux besoins actuels peut se montrer limitée pour les besoins futurs. Alors qu'est-ce qu'on fait ?
+As developers, we must make effective choices, and that's what we often do in the end. But are these choices efficient? On the other hand, a solution that perfectly meets current needs may be limited for future needs. So what do we do?
 
-Premièrement, dans la très grande majorité des projets existants, vous n'avez pas besoin de toutes les fonctionnalités de Redux, le fameux [YAGNI](https://martinfowler.com/bliki/Yagni.html). Et la seconde réponse que j'aimerais apporter nous vient du monde agile via deux principes fondamentaux :
+Firstly, in the vast majority of existing projects, you don't need all the features of Redux, the famous [YAGNI](https://martinfowler.com/bliki/Yagni.html). And the second response I would like to provide comes from the agile world via two fundamental principles:
 
 > Simplicity (the art of maximizing the amount of work not done) is essential.
 
 > The best architectures, requirements, and designs emerge from self-organizing teams.
 
-C'est pour cela que la compréhension du besoin et du contexte de votre projet est primordiale. En ayant toutes les cartes en main et la possibilité d'agir\*, vous construirez une solution qui sert au mieux votre produit.
+That's why understanding the needs and context of your project is crucial. With all the cards in hand and the ability to act\*, you will build a solution that best serves your product.
 
-De votre côté, avez-vous déjà été tenté par d'autres solutions que Redux dans vos projets front ? Avez-vous franchi le pas, même sur des fronts assez conséquents ?
+Have you ever been tempted by solutions other than Redux in your frontend projects? Have you taken the plunge, even on fairly substantial projects?
 
-:::tip Impossibilité d'agir
+:::tip Inability to act
 
-Si vous ou votre équipe êtes pieds et poings liés sur l'ensemble des solutions techniques, fuyez !
+If you or your team are tied down to a set of technical solutions, run away!
 
 :::
