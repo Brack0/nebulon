@@ -179,7 +179,7 @@ Vous pouvez maintenant être plus précis sur le typage des données. Rien de r�
 
 ## Pour aller plus loin
 
-Je vous invite à aller voir mon article sur le [pattern matching en JS](./js-pattern-matching) qui complète assez bien les unions disjointes que l'on vient de voir. En combinant les deux, vous pouvez notamment faire une sorte de polymorphisme sans héritage et sans classe.
+Je vous invite à aller voir mon article sur le [pattern matching en JS](./js-pattern-matching) qui complète assez bien les unions disjointes que l'on vient de voir. En combinant les deux, vous pouvez rapidement faire un pattern stratégie.
 
 ```ts
 const redirectToHomePage = () => (location.href = "/");

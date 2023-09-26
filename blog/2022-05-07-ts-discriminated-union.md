@@ -1,19 +1,19 @@
 ---
 slug: ts-discriminated-union
-title: "Exploiter les Discriminated Union en Typescript"
+title: "Leveraging Discriminated Unions in TypeScript"
 authors: dsouron
-tags: [Typescript, Tutorial, Programming, French]
+tags: [Typescript, Tutorial, Programming, English]
 ---
 
-## De quoi parle-t-on ?
+## What are we talking about?
 
-En Typescript, il est possible de définir des types de plusieurs manières : interface, classe, enum, mot-clé `type`, `as const`, etc. Dans cet article, nous allons nous concentrer sur les types construits à partir d'une union disjointe et les avantages d'une telle pratique. L'union en Typescript se fait via le symbole `|` (ex : `type Union = A | B | C`). Le terme disjoint n'est pas anodin car contrairement au polymorphisme, les types que l'on va utiliser peuvent ne rien avoir en commun.
+In TypeScript, it is possible to define types in several ways: interface, class, enum, the `type` keyword, `as const`, and more. In this article, we will focus on types constructed from a discriminated union and the advantages of such a practice. In TypeScript, unions are created using the `|` symbol (e.g., `type Union = A | B | C`). The term "disjoint" is not accidental because, unlike polymorphism, the types we will use may have nothing in common.
 
 <!--truncate-->
 
-## Mise en situation
+## Setting the stage
 
-Prenons un exemple très simple, la représentation des utilisateurs dans une application. Ces utilisateurs peuvent être des invités (guest), des clients (customer) ou des administrateurs (admin). Les utilisateurs connectés ont un identifiant et les administrateurs ont des permissions spécifiques relatives à leur domaine d'administration. Construisons donc une interface `User` pour gérer nos utilisateurs.
+Let's take a very simple example: representing users in an application. These users can be guests, customers, or administrators. Logged-in users have an identifier, and administrators have specific permissions related to their administrative domain. Let's create a `User` interface to manage our users.
 
 ```ts
 interface User {
@@ -23,9 +23,9 @@ interface User {
 }
 ```
 
-Certaines propriétés sont optionnelles car elles n'existent pas pour l'utilisateur invité (et qu'on utilise le mode `strict` du compilateur Typescript).
+Some properties are optional because they do not exist for guest users (and we use TypeScript's `strict` mode).
 
-Cette interface nous permet de créer des utilisateurs valides :
+This interface allows us to create valid users:
 
 ```ts
 const johnDoe: User = {
@@ -38,7 +38,7 @@ const guest: User = {
 };
 ```
 
-Mais nous pouvons également créer des utilisateurs qui correspondent à des cas non souhaités :
+But we can also create users that correspond to undesired cases:
 
 ```ts
 const customerWithoutLogin: User = {
@@ -50,7 +50,7 @@ const guestWithAccessRights: User = {
 };
 ```
 
-Et on ne peut pas garantir si par exemple l'identifiant existe ou pas :
+And we cannot guarantee whether, for example, the identifier exists or not:
 
 ```ts
 johnDoe.login.toUpperCase(); // Object is possibly 'undefined'.
@@ -59,25 +59,25 @@ customerWithoutLogin.login.toUpperCase(); // Object is possibly 'undefined'.
 guestWithAccessRights.login.toUpperCase(); // Object is possibly 'undefined'.
 ```
 
-En général on finit par utiliser une condition ou du chainage optionnel, ce qui renforce l'incertitude sur le fonctionnement au runtime :
+In general, we end up using conditional or optional chaining, which reinforces uncertainty about runtime behavior:
 
 ```ts
-// Which one is really executed ?
+// Which one is really executed?
 johnDoe.login?.toUpperCase();
 guest.login?.toUpperCase();
 customerWithoutLogin.login?.toUpperCase();
 guestWithAccessRights.login?.toUpperCase();
 ```
 
-Pour réduire cette incertitude, il ne nous reste plus qu'à écrire des tests unitaires, faire du monitoring, du debug et lever des exceptions. Heureusement, nous pouvons éviter tout ça avec un meilleur typage.
+To reduce this uncertainty, the only option left is to write unit tests, perform monitoring, debugging, and throw exceptions. Fortunately, we can avoid all of this with better typing.
 
 ## Discriminated Union
 
 > Explicit is better than implicit
 
-Nous avons trois types d'utilisateurs distincts et les regrouper dans une même interface/classe est une erreur commune. Et c'est normal, on nous répète souvent DRY (Don't Repeat Yourself) et on a envie de factoriser les utilisateurs dans une même classe ou dans une même interface pour y appliquer des méthodes communes.
+We have three distinct user types, and grouping them into a single interface or class is a common mistake. It's normal because we often hear DRY (Don't Repeat Yourself), and we want to factorize users into a single class or interface to apply common methods.
 
-Et si on faisait le contraire ? Trois types d'utilisateurs, donc trois interfaces.
+But what if we did the opposite? Three user types, so three interfaces.
 
 ```ts
 interface GuestUser {
@@ -96,13 +96,13 @@ interface AdminUser {
 }
 ```
 
-Ensuite, il nous suffit de définir un type qui correspond à l'union des trois interfaces distinctes :
+Then, we only need to define a type that corresponds to the union of the three distinct interfaces:
 
 ```ts
 type User = GuestUser | CustomerUser | AdminUser;
 ```
 
-Cette fois, la syntaxe nous permet toujours de créer des utilisateurs valides :
+This time, the syntax still allows us to create valid users:
 
 ```ts
 const johnDoe: User = {
@@ -119,7 +119,7 @@ const guest: User = {
 };
 ```
 
-Mais interdit la création d'utilisateurs qui n'ont pas de sens :
+But it prevents the creation of users that do not make sense:
 
 ```ts
 /**
@@ -142,7 +142,7 @@ const guestWithAccessRights: User = {
 };
 ```
 
-L'accès aux propriétés est également bien plus prédictible :
+Access to properties is also much more predictable:
 
 ```ts
 johnDoe.login.toUpperCase(); // OK
@@ -150,7 +150,7 @@ customer.login.toUpperCase(); // OK
 guest.login.toUpperCase(); // Property 'login' does not exist on type 'GuestUser'.
 ```
 
-L'inférence de type fait également des merveilles :
+Type inference also works wonders:
 
 ```ts
 // login is defined because GuestUser is excluded (Type guard)
@@ -160,7 +160,7 @@ const displayLogin = (user: User) =>
 
 :::tip ProTip
 
-Si l'inférence ne fonctionne pas, pensez à définir un champ qui va aider Typescript à déterminer le bon type (`userType` dans notre exemple). Vous pouvez aussi identifier le type manuellement avec le mot-clé `is`.
+If type inference does not work, consider defining a field that will help TypeScript determine the correct type (`userType` in our example). You can also manually identify the type with the `is` keyword.
 
 ```ts
 const isAdmin = (user: User): user is AdminUser =>
@@ -175,11 +175,11 @@ users.filter(isAdmin).forEach((admin) => console.log(admin.accessRights));
 
 ## Conclusion
 
-Vous pouvez maintenant être plus précis sur le typage des données. Rien de révolutionnaire ici mais rappelez-vous que le typage est un bon moyen d'augmenter la prédictibilité de votre code.
+You can now be more precise in typing data. There's nothing revolutionary here, but remember that typing is a good way to increase the predictability of your code.
 
-## Pour aller plus loin
+## Further reading
 
-Je vous invite à aller voir mon article sur le [pattern matching en JS](./js-pattern-matching) qui complète assez bien les unions disjointes que l'on vient de voir. En combinant les deux, vous pouvez notamment faire une sorte de polymorphisme sans héritage et sans classe.
+I invite you to check out my article on [pattern matching in JS](./js-pattern-matching), which complements the disjoint unions we've just seen. By combining the two, you can quickly implement a strategy pattern.
 
 ```ts
 const redirectToHomePage = () => (location.href = "/");
