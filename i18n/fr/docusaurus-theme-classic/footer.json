@@ -44,7 +44,7 @@
     "description": "The label of footer link with label=GitLab linking to //gitlab.com/brack0"
   },
   "copyright": {
-    "message": "Copyright © 2022 Nebulon. Construit avec Docusaurus 2. Hébergé sur Vercel.",
+    "message": "Copyright © 2023 Nebulon. Construit avec Docusaurus 2. Hébergé sur Vercel.",
     "description": "The footer copyright"
   }
 }

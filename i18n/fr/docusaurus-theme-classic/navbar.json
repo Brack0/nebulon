@@ -22,5 +22,9 @@
   "item.label.Trivia": {
     "message": "Anecdotes",
     "description": "Navbar item with label Trivia"
+  },
+  "logo.alt": {
+    "message": "Logo",
+    "description": "The alt text of navbar logo"
   }
 }
