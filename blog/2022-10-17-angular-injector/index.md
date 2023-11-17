@@ -51,3 +51,5 @@ Regarding instantiation, it is postponed until the last moment. As long as there
 I hope I have helped you gain a better understanding of the role of `Injector` in Angular's operation. You now know that it is an object that manages instantiations at the root, in modules, and in certain components or directives. These instantiations are shared with child elements but they can also be overridden locally by a submodule or in a component.
 
 When you do [dynamic component loading](https://angular.io/guide/dynamic-component-loader), you can define the `Injector` used yourself (see [`ViewContainerRef` documentation](https://angular.io/api/core/ViewContainerRef#createcomponent)). For the curious, I recommend checking out the impact of _standalone components_ on `Injectors`, more details [here](https://angular.io/guide/standalone-components#dependency-injection-and-injectors-hierarchy).
+
+Go further : If you want a more details on `Injector` and Injection in Angular, I recommend checking this deep dive : [How Angular Dependency Injection works under the hood](https://medium.com/ngconf/how-angular-dependency-injection-works-under-the-hood-cc210f7040bd)
